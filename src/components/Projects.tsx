@@ -19,12 +19,14 @@ const Projects = () => {
       <div className={styles.container}>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={200}
-          totalSlides={2}
-          visibleSlides={1.8}
+          naturalSlideHeight={250}
+          totalSlides={3}
+          visibleSlides={1.5}
+          lockOnWindowScroll={true}
           className={styles.carousel}
         >
           <Slider>
+            {/* <div className={styles.spacer}></div> */}
             <Slide index={0}>
               <ProjectCard />
               <ProjectCard />
