@@ -8,20 +8,20 @@ import Contact from '../src/components/Contact';
 
 const Home: NextPage = () => {
   return (
-    <main className={styles.cotainer}>
-      <section className={styles.navcontainer}>
+    <main className={styles.wrapper}>
+      <section className={styles.nav}>
         <Navbar />
       </section>
-      <section className={styles.home} id="home">
+      <section className={styles.containerGrey} id="hero">
         <Hero />
       </section>
-      <section className={styles.projects} id="projects">
+      <section className={styles.containerWhite} id="projects">
         <Projects />
       </section>
-      <section className={styles.about} id="about">
+      <section className={styles.containerGrey} id="about">
         <About />
       </section>
-      <section className={styles.contact} id="contact">
+      <section className={styles.containerWhite} id="contact">
         <Contact />
       </section>
     </main>

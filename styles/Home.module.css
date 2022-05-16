@@ -1,35 +1,23 @@
-.home {
-  width: 100vw;
-  height: 100vh;
-  background-color: #3f3f3f;
-}
-
-.projects {
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-}
-
-.about {
-  width: 100vw;
-  height: 100vh;
-  background-color: #3f3f3f;
-}
-
-.contact {
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-}
-
-.navcontainer {
-  display: flex;
-  justify-content: center;
-}
-
-.container {
+.wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: fit-content;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.containerGrey {
+  width: 100vw;
+  height: 100vh;
+  background-color: #3f3f3f;
+}
+
+.containerWhite {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
 }

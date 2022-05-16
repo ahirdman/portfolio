@@ -9,7 +9,7 @@ import styles from '../../styles/Navbar.module.css';
 const Navbar = () => {
   return (
     <nav className={styles.navbar}>
-      <Link to="home" smooth={true} spy={true}>
+      <Link to="hero" smooth={true} spy={true}>
         Home
       </Link>
       <Link to="projects" smooth={true} spy={true}>
