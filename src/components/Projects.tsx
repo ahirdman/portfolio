@@ -1,13 +1,13 @@
-import styles from '../../styles/Projects.module.css';
+import { Header, Title, Details } from '../styled';
 import Carousel from './Carousel';
 
 const Projects = () => {
   return (
     <>
-      <div className={styles.header}>
-        <p className={styles.title}>PROJECTS</p>
-        <p className={styles.description}>Some of my work</p>
-      </div>
+      <Header>
+        <Title grey>PROJECTS</Title>
+        <Details>Some of my work</Details>
+      </Header>
       <Carousel />
     </>
   );

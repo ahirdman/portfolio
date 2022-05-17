@@ -1,9 +1,12 @@
-const contact = () => {
+import { Header, Title, Details } from '../styled';
+
+const Contact = () => {
   return (
-    <div>
-      <p>Contact</p>
-    </div>
+    <Header>
+      <Title grey>CONTACT</Title>
+      <Details>Get in touch</Details>
+    </Header>
   );
 };
 
-export default contact;
+export default Contact;

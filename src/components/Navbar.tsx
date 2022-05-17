@@ -1,9 +1,4 @@
-import {
-  Link,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll';
+import { Link } from 'react-scroll';
 import styles from '../../styles/Navbar.module.css';
 
 const Navbar = () => {

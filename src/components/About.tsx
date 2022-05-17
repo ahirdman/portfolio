@@ -1,8 +1,11 @@
+import { Header, Title, Details } from '../styled';
+
 const About = () => {
   return (
-    <div>
-      <p>about</p>
-    </div>
+    <Header>
+      <Title>ABOUT</Title>
+      <Details>Who is Alexander?</Details>
+    </Header>
   );
 };
 
