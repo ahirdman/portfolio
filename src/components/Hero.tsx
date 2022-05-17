@@ -1,10 +1,10 @@
-import styles from '../../styles/Hero.module.css';
+import { Header, Title } from '../styled';
 
 const Hero = () => {
   return (
-    <div>
-      <p className={styles.title}>ALEXANDER HIRDMAN</p>
-    </div>
+    <Header>
+      <Title>ALEXANDER HIRDMAN</Title>
+    </Header>
   );
 };
 

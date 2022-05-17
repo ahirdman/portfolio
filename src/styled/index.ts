@@ -27,4 +27,41 @@ const Details = styled.p`
   color: #868686;
 `;
 
-export { Header, Title, Details };
+const Column = styled.div`
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Row = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const VerticalTitle = styled.p`
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+`;
+
+const BodyText = styled.p`
+  width: 270px;
+  height: 250px;
+  padding-left: 40px;
+  margin-left: 30px;
+  border-left: 1px solid #ffffff;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: justify;
+  letter-spacing: 0.05em;
+  color: #d3d3d3;
+`;
+
+export { Header, Title, Details, Column, VerticalTitle, Row, BodyText };
