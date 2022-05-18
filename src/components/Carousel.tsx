@@ -2,7 +2,12 @@ import ProjectCard from './ProjectCard';
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-const Carousel = () => {
+interface ICarouselProps {
+  modalOpen: boolean;
+  setModalOpen: any;
+}
+
+const Carousel = ({ modalOpen, setModalOpen }: ICarouselProps) => {
   return (
     <CarouselProvider
       naturalSlideWidth={100}
@@ -13,16 +18,16 @@ const Carousel = () => {
     >
       <Slider>
         <Slide index={0}>
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
+          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
         </Slide>
         <Slide index={1}>
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
+          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
         </Slide>
         <Slide index={2}>
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
+          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
         </Slide>
       </Slider>
       <DotGroup showAsSelectedForCurrentSlideOnly={true} />

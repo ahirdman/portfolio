@@ -1,10 +1,13 @@
-import { Header, Title } from '../styled';
+import Image from 'next/image';
+import { Column, Header, HeroImage, Title } from '../styled';
 
 const Hero = () => {
   return (
-    <Header>
-      <Title>ALEXANDER HIRDMAN</Title>
-    </Header>
+    <Column>
+      <Header>
+        <Title>ALEXANDER HIRDMAN</Title>
+      </Header>
+    </Column>
   );
 };
 
