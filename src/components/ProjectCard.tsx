@@ -1,26 +1,22 @@
-import Image from 'next/image';
+import { ICard } from 'src/interface';
 import styles from '../../styles/ProjectCard.module.css';
 
 interface IProjectCardProps {
   modalOpen: boolean;
   setModalOpen: any;
+  card: ICard;
 }
 
-const ProjectCard = ({ modalOpen, setModalOpen }: IProjectCardProps) => {
+const ProjectCard = ({ modalOpen, setModalOpen, card }: IProjectCardProps) => {
   return (
     <>
       <section
         className={styles.card}
         onClick={() => (modalOpen ? setModalOpen(false) : setModalOpen(true))}
       >
-        <p className={styles.title}>SPOTIFY</p>
-        <p className={styles.description}>Personal Project</p>
-        <Image
-          className={styles.image}
-          src="/images/app.jpeg"
-          width={220}
-          height={200}
-        />
+        <p className={styles.title}>{card.title}</p>
+        <p className={styles.description}>{card.type}</p>
+        <img className={styles.image} src={`https:${card.image}`} />
       </section>
     </>
   );

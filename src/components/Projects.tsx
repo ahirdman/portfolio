@@ -3,8 +3,13 @@ import Carousel from './Carousel';
 import ProjectModal from './ProjectModal';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { ICard } from 'src/interface';
 
-const Projects = () => {
+interface IProjectProps {
+  cards: ICard[];
+}
+
+const Projects = ({ cards }: IProjectProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
@@ -12,8 +17,11 @@ const Projects = () => {
         <Title grey>PROJECTS</Title>
         <Details>Some of my work</Details>
       </Header>
-      <Carousel modalOpen={modalOpen} setModalOpen={setModalOpen} />
-
+      <Carousel
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        cards={cards}
+      />
       <AnimatePresence
         // Disable any initial animations on children that
         // are present when the component is first rendered

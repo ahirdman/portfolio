@@ -1,34 +1,33 @@
 import ProjectCard from './ProjectCard';
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { ICard } from 'src/interface';
 
 interface ICarouselProps {
   modalOpen: boolean;
   setModalOpen: any;
+  cards: ICard[];
 }
 
-const Carousel = ({ modalOpen, setModalOpen }: ICarouselProps) => {
+const Carousel = ({ modalOpen, setModalOpen, cards }: ICarouselProps) => {
   return (
     <CarouselProvider
       naturalSlideWidth={100}
       naturalSlideHeight={190}
-      totalSlides={3}
+      totalSlides={cards.length}
       visibleSlides={1.5}
       lockOnWindowScroll={true}
     >
       <Slider>
-        <Slide index={0}>
-          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
-          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
-        </Slide>
-        <Slide index={1}>
-          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
-          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
-        </Slide>
-        <Slide index={2}>
-          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
-          <ProjectCard modalOpen={modalOpen} setModalOpen={setModalOpen} />
-        </Slide>
+        {cards.map((card: ICard, index: number) => (
+          <Slide index={index} key={card.id}>
+            <ProjectCard
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              card={card}
+            />
+          </Slide>
+        ))}
       </Slider>
       <DotGroup showAsSelectedForCurrentSlideOnly={true} />
     </CarouselProvider>
