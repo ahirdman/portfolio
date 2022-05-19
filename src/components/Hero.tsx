@@ -1,16 +1,30 @@
-import { Column, GreySection } from 'src/styled/Containers';
-import { Header, Title } from 'src/styled/Text';
-// import { Header, Title } from 'src/styled/Text';
-// import { Column, GreySection } from 'src/styled/Containers';
+import Image from 'next/image';
+import { HeroColumn, GreySection } from 'src/styled/Containers';
+import { HeroBody, Header, HeroTitle } from 'src/styled/Text';
+import styles from '../../styles/Hero.module.css';
 
 const Hero = () => {
   return (
     <GreySection id="hero">
-      <Column>
+      <Image
+        src={'/images/hero.jpg'}
+        alt="me"
+        layout="responsive"
+        width={300}
+        height={200}
+        className={styles.hero}
+      />
+      <HeroColumn>
         <Header>
-          <Title>ALEXANDER HIRDMAN</Title>
+          <HeroTitle>ALEXANDER HIRDMAN</HeroTitle>
         </Header>
-      </Column>
+        <HeroBody>
+          Restaurant manager turned fullstack developer.
+          <br />
+          <br />I strive to create simplified applications that improves daily
+          life.
+        </HeroBody>
+      </HeroColumn>
     </GreySection>
   );
 };

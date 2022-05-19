@@ -18,6 +18,19 @@ const Title = styled.p<ITitle>`
   color: ${props => (props.grey ? '#3f3f3f' : '#ffffff')};
 `;
 
+const HeroTitle = styled(Title)`
+  text-align: left;
+  padding-top: 0;
+`;
+
+const HeroBody = styled.p`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+`;
+
 const Details = styled.p`
   font-weight: 700;
   font-size: 14px;
@@ -86,6 +99,17 @@ const CardDescription = styled.p`
   margin-bottom: 5px;
 `;
 
+const NavLink = styled.p`
+  font-weight: 700;
+  font-size: 12px;
+  color: white;
+  line-height: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export {
   Header,
   Title,
@@ -96,4 +120,7 @@ export {
   ModalBody,
   CardTitle,
   CardDescription,
+  NavLink,
+  HeroTitle,
+  HeroBody,
 };

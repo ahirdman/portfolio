@@ -6,10 +6,6 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  color: white;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
   width: 270px;
   height: 50px;
   background: rgba(0, 0, 0, 0.3);

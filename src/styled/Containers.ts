@@ -7,6 +7,15 @@ const Column = styled.div`
   justify-content: space-between;
 `;
 
+const HeroColumn = styled(Column)`
+  position: relative;
+  bottom: 2rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  height: 50vh;
+  justify-content: space-between;
+`;
+
 const Row = styled.div`
   display: flex;
   justify-content: center;
@@ -42,6 +51,7 @@ const CardContainer = styled.div`
 
 export {
   Column,
+  HeroColumn,
   Row,
   MainWrapper,
   WhiteSection,
