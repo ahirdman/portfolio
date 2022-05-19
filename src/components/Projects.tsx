@@ -11,6 +11,7 @@ interface IProjectProps {
 
 const Projects = ({ cards }: IProjectProps) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [project, setProject] = useState();
   return (
     <>
       <Header>
@@ -21,6 +22,7 @@ const Projects = ({ cards }: IProjectProps) => {
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
         cards={cards}
+        setProject={setProject}
       />
       <AnimatePresence
         // Disable any initial animations on children that
@@ -33,7 +35,12 @@ const Projects = ({ cards }: IProjectProps) => {
         // Fires when all exiting nodes have completed animating out
         onExitComplete={() => null}
       >
-        {modalOpen && <ProjectModal handleClose={() => setModalOpen(false)} />}
+        {project && modalOpen && (
+          <ProjectModal
+            project={project}
+            handleClose={() => setModalOpen(false)}
+          />
+        )}
       </AnimatePresence>
     </>
   );

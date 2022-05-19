@@ -7,9 +7,15 @@ interface ICarouselProps {
   modalOpen: boolean;
   setModalOpen: any;
   cards: ICard[];
+  setProject: any;
 }
 
-const Carousel = ({ modalOpen, setModalOpen, cards }: ICarouselProps) => {
+const Carousel = ({
+  modalOpen,
+  setModalOpen,
+  cards,
+  setProject,
+}: ICarouselProps) => {
   return (
     <CarouselProvider
       naturalSlideWidth={100}
@@ -20,11 +26,12 @@ const Carousel = ({ modalOpen, setModalOpen, cards }: ICarouselProps) => {
     >
       <Slider>
         {cards.map((card: ICard, index: number) => (
-          <Slide index={index} key={card.id}>
+          <Slide index={index} key={index}>
             <ProjectCard
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
               card={card}
+              setProject={setProject}
             />
           </Slide>
         ))}

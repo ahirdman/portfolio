@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import { Column, Header, HeroImage, Title } from '../styled';
+import { Column, Header, Title } from '../styled';
 
 const Hero = () => {
   return (

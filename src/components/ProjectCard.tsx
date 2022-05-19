@@ -5,13 +5,22 @@ interface IProjectCardProps {
   modalOpen: boolean;
   setModalOpen: any;
   card: ICard;
+  setProject: any;
 }
 
-const ProjectCard = ({ modalOpen, setModalOpen, card }: IProjectCardProps) => {
+const ProjectCard = ({
+  modalOpen,
+  setModalOpen,
+  card,
+  setProject,
+}: IProjectCardProps) => {
   return (
     <section
       className={styles.card}
-      onClick={() => (modalOpen ? setModalOpen(false) : setModalOpen(true))}
+      onClick={() => {
+        setProject(card.ref);
+        modalOpen ? setModalOpen(false) : setModalOpen(true);
+      }}
     >
       <p className={styles.title}>{card.title}</p>
       <p className={styles.description}>{card.type}</p>

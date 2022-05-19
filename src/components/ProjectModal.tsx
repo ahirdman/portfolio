@@ -6,7 +6,7 @@ import { Header, Title, Details, ModalTitle, ModalBody } from '../styled';
 
 interface IProjectModalProps {
   handleClose: any;
-  text?: any;
+  project?: any;
 }
 
 const popUp = {
@@ -30,7 +30,7 @@ const popUp = {
   },
 };
 
-const ProjectModal = ({ handleClose, text }: IProjectModalProps) => {
+const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   return (
     <Backdrop onClick={handleClose}>
       <img
@@ -48,31 +48,19 @@ const ProjectModal = ({ handleClose, text }: IProjectModalProps) => {
         exit="exit"
       >
         <Header>
-          <Title grey>SPOTIFY</Title>
-          <Details>Generate Playlists based on tags</Details>
+          <Title grey>{project.title}</Title>
+          <Details>{project.details}</Details>
         </Header>
         <Image
-          src="/images/app.jpeg"
+          src={`https:${project.screenshot.fields.file.url}`}
           width={350}
           height={250}
           className={styles.image}
         />
         <ModalTitle>WHY</ModalTitle>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-          turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-          fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus
-          elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
-          lectus. Class aptent
-        </ModalBody>
+        <ModalBody>{project.why}</ModalBody>
         <ModalTitle>RESULT</ModalTitle>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-          turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-          fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus
-          elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
-          lectus. Class aptent
-        </ModalBody>
+        <ModalBody>{project.result}</ModalBody>
       </motion.div>
     </Backdrop>
   );

@@ -2,7 +2,7 @@ interface ICard {
   title: string;
   type: string;
   image: string;
-  id: string;
+  ref: any;
 }
 
 export type { ICard };
