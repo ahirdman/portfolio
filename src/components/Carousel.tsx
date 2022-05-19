@@ -22,7 +22,7 @@ const Carousel = ({
   return (
     <CarouselProvider
       naturalSlideWidth={100}
-      naturalSlideHeight={200}
+      naturalSlideHeight={190}
       totalSlides={nestedCards.length}
       visibleSlides={1.5}
       lockOnWindowScroll={true}

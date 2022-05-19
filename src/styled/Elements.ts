@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
   position: fixed;
-  top: 90%;
+  top: 92%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
