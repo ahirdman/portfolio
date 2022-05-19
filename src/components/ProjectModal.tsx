@@ -1,8 +1,9 @@
+import { Header, Title, Details, ModalTitle, ModalBody } from '../styled/Text';
 import { motion } from 'framer-motion';
+import { Close } from '../assets/index';
 import Backdrop from './Backdrop';
 import styles from '../../styles/ProjectModal.module.css';
 import Image from 'next/image';
-import { Header, Title, Details, ModalTitle, ModalBody } from '../styled/Text';
 
 interface IProjectModalProps {
   handleClose: any;
@@ -33,12 +34,7 @@ const popUp = {
 const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   return (
     <Backdrop onClick={handleClose}>
-      <img
-        src="/images/close.svg"
-        alt="close"
-        onClick={handleClose}
-        className={styles.close}
-      />
+      <Close className={styles.close} />
       <motion.div
         onClick={e => e.stopPropagation()}
         className={styles.modal}
@@ -51,12 +47,15 @@ const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
           <Title grey>{project.title}</Title>
           <Details>{project.details}</Details>
         </Header>
-        <Image
-          src={`https:${project.screenshot.fields.file.url}`}
-          width={350}
-          height={250}
-          style={{ borderRadius: '5px' }}
-        />
+        <div className={styles.image}>
+          <Image
+            src={`https:${project.screenshot.fields.file.url}`}
+            width={192}
+            height={108}
+            layout="responsive"
+            style={{ borderRadius: '5px' }}
+          />
+        </div>
         <ModalTitle>WHY</ModalTitle>
         <ModalBody>{project.why}</ModalBody>
         <ModalTitle>RESULT</ModalTitle>

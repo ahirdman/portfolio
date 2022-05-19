@@ -1,7 +1,7 @@
 import { Centered, WhiteSection } from '../styled/Containers';
 import { Header, Title, Details } from '../styled/Text';
-import styles from '../../styles/Contact.module.css';
 import { Github, LinkedIn } from '../assets';
+import styles from '../../styles/Contact.module.css';
 
 const Contact = () => {
   return (

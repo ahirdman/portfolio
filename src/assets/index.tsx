@@ -1,5 +1,6 @@
 interface ISVGProps {
-  fill: string;
+  fill?: string;
+  stroke?: string;
   className: string;
 }
 
@@ -29,4 +30,22 @@ const LinkedIn = ({ fill, className }: ISVGProps) => (
   </svg>
 );
 
-export { Github, LinkedIn };
+const Close = ({ className }: ISVGProps) => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    fill="none"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1 1L17.1111 17.1111" stroke="#B8B8B8" strokeLinecap="round" />
+    <path
+      d="M17.1111 1L0.999973 17.1111"
+      stroke="#B8B8B8"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+export { Github, LinkedIn, Close };

@@ -27,7 +27,7 @@ const ProjectCard = ({
       <CardDescription>{card.type}</CardDescription>
       <Image
         src={`https:${card.image}`}
-        width={220}
+        width={200}
         height={200}
         style={{ borderRadius: '5px' }}
       />

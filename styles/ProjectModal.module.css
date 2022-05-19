@@ -13,8 +13,17 @@
 }
 
 .close {
-  width: 15px;
-  height: auto;
   margin-top: 1.5vh;
   margin-right: 1.5vh;
+  z-index: 1;
+}
+
+.close:hover {
+  stroke-width: 2px;
+}
+
+.image {
+  width: 90vw;
+  height: auto;
+  margin-top: 0.5rem;
 }
