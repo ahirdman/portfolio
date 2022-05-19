@@ -84,6 +84,7 @@ const ModalBody = styled.p`
   line-height: 18px;
   letter-spacing: 0.03em;
   color: #000000;
+  text-align: left;
 `;
 
 const CardTitle = styled.p`

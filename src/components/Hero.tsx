@@ -19,10 +19,10 @@ const Hero = () => {
           <HeroTitle>ALEXANDER HIRDMAN</HeroTitle>
         </Header>
         <HeroBody>
-          Restaurant manager turned fullstack developer.
+          Restaurant manager turned fullstack developer
           <br />
           <br />I strive to create simplified applications that improves daily
-          life.
+          life
         </HeroBody>
       </HeroColumn>
     </GreySection>

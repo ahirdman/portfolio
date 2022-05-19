@@ -21,6 +21,14 @@ const Row = styled.div`
   justify-content: center;
 `;
 
+const Centered = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 60vh;
+`;
+
 const MainWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -53,6 +61,7 @@ export {
   Column,
   HeroColumn,
   Row,
+  Centered,
   MainWrapper,
   WhiteSection,
   GreySection,

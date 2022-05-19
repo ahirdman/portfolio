@@ -18,7 +18,6 @@ const Carousel = ({
   setProject,
 }: ICarouselProps) => {
   const nestedCards = nestArray(cards);
-  console.log(nestedCards);
   return (
     <CarouselProvider
       naturalSlideWidth={100}

@@ -1,0 +1,8 @@
+.svg {
+  margin: 1rem;
+}
+
+.svg:hover {
+  fill: rgb(208, 135, 16);
+  cursor: pointer;
+}

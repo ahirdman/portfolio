@@ -7,6 +7,7 @@ import Contact from '../src/components/Contact';
 import { getAllProjects } from '../src/contentful';
 import { useState } from 'react';
 import { MainWrapper } from 'src/styled/Containers';
+import Head from 'next/head';
 
 interface IHomeProps {
   cards?: any;
@@ -16,17 +17,22 @@ const Home: NextPage = ({ cards }: IHomeProps) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <MainWrapper>
-      {!modalOpen && <Navbar />}
-      <Hero />
-      <Projects
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-        cards={cards}
-      />
-      <About />
-      <Contact />
-    </MainWrapper>
+    <>
+      <Head>
+        <title>Alexande Hirdman - Portfolio</title>
+      </Head>
+      <MainWrapper>
+        {!modalOpen && <Navbar />}
+        <Hero />
+        <Projects
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+          cards={cards}
+        />
+        <About />
+        <Contact />
+      </MainWrapper>
+    </>
   );
 };
 
