@@ -2,15 +2,14 @@ import {
   Header,
   Title,
   Details,
-  Column,
   VerticalTitle,
-  Row,
   BodyText,
-} from '../styled';
+} from '../styled/Text';
+import { Row, Column, GreySection } from 'src/styled/Containers';
 
 const About = () => {
   return (
-    <>
+    <GreySection id="about">
       <Header>
         <Title>ABOUT</Title>
         <Details>Who is Alexander?</Details>
@@ -43,7 +42,7 @@ const About = () => {
           </BodyText>
         </Row>
       </Column>
-    </>
+    </GreySection>
   );
 };
 

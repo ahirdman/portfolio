@@ -1,18 +1,14 @@
-import { Header, Title, Details } from '../styled';
-// import { motion } from 'framer-motion';
+import { WhiteSection } from '../styled/Containers';
+import { Header, Title, Details } from '../styled/Text';
 
 const Contact = () => {
   return (
-    <Header>
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      > */}
-      <Title grey>CONTACT</Title>
-      <Details>Get in touch</Details>
-      {/* </motion.div> */}
-    </Header>
+    <WhiteSection id="contact">
+      <Header>
+        <Title grey>CONTACT</Title>
+        <Details>Get in touch</Details>
+      </Header>
+    </WhiteSection>
   );
 };
 

@@ -1,19 +1,21 @@
-import { Header, Title, Details } from '../styled';
+import { Header, Title, Details } from '../styled/Text';
 import Carousel from './Carousel';
 import ProjectModal from './ProjectModal';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { ICard } from 'src/interface';
+import { WhiteSection } from 'src/styled/Containers';
 
 interface IProjectProps {
   cards: ICard[];
+  modalOpen: boolean;
+  setModalOpen: any;
 }
 
-const Projects = ({ cards }: IProjectProps) => {
-  const [modalOpen, setModalOpen] = useState(false);
+const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
   const [project, setProject] = useState();
   return (
-    <>
+    <WhiteSection id="projects">
       <Header>
         <Title grey>PROJECTS</Title>
         <Details>Some of my work</Details>
@@ -42,7 +44,7 @@ const Projects = ({ cards }: IProjectProps) => {
           />
         )}
       </AnimatePresence>
-    </>
+    </WhiteSection>
   );
 };
 

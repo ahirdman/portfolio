@@ -1,22 +1,25 @@
 import { Link } from 'react-scroll';
-import styles from '../../styles/Navbar.module.css';
+import { Nav } from 'src/styled/Elements';
+import { NavContainer } from '../styled/Containers';
 
 const Navbar = () => {
   return (
-    <nav className={styles.navbar}>
-      <Link to="hero" smooth={true} spy={true}>
-        Home
-      </Link>
-      <Link to="projects" smooth={true} spy={true}>
-        Projects
-      </Link>
-      <Link to="about" smooth={true} spy={true}>
-        About
-      </Link>
-      <Link to="contact" smooth={true} spy={true}>
-        Contact
-      </Link>
-    </nav>
+    <NavContainer>
+      <Nav>
+        <Link to="hero" smooth={true} spy={true}>
+          Home
+        </Link>
+        <Link to="projects" smooth={true} spy={true}>
+          Projects
+        </Link>
+        <Link to="about" smooth={true} spy={true}>
+          About
+        </Link>
+        <Link to="contact" smooth={true} spy={true}>
+          Contact
+        </Link>
+      </Nav>
+    </NavContainer>
   );
 };
 

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Backdrop from './Backdrop';
 import styles from '../../styles/ProjectModal.module.css';
 import Image from 'next/image';
-import { Header, Title, Details, ModalTitle, ModalBody } from '../styled';
+import { Header, Title, Details, ModalTitle, ModalBody } from '../styled/Text';
 
 interface IProjectModalProps {
   handleClose: any;
@@ -55,7 +55,7 @@ const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
           src={`https:${project.screenshot.fields.file.url}`}
           width={350}
           height={250}
-          className={styles.image}
+          style={{ borderRadius: '5px' }}
         />
         <ModalTitle>WHY</ModalTitle>
         <ModalBody>{project.why}</ModalBody>

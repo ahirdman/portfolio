@@ -2,34 +2,31 @@ import type { NextPage } from 'next';
 import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
 import Projects from '../src/components/Projects';
-import styles from '../styles/Home.module.css';
 import About from '../src/components/About';
 import Contact from '../src/components/Contact';
-import { getAllProjects, getSingleProject } from '../src/contentful';
+import { getAllProjects } from '../src/contentful';
+import { useState } from 'react';
+import { MainWrapper } from 'src/styled/Containers';
 
 interface IHomeProps {
   cards?: any;
 }
 
 const Home: NextPage = ({ cards }: IHomeProps) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <main className={styles.wrapper}>
-      <section className={styles.nav}>
-        <Navbar />
-      </section>
-      <section className={styles.containerGrey} id="hero">
-        <Hero />
-      </section>
-      <section className={styles.containerWhite} id="projects">
-        <Projects cards={cards} />
-      </section>
-      <section className={styles.containerGrey} id="about">
-        <About />
-      </section>
-      <section className={styles.containerWhite} id="contact">
-        <Contact />
-      </section>
-    </main>
+    <MainWrapper>
+      {!modalOpen && <Navbar />}
+      <Hero />
+      <Projects
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        cards={cards}
+      />
+      <About />
+      <Contact />
+    </MainWrapper>
   );
 };
 

@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import { ICard } from 'src/interface';
-import styles from '../../styles/ProjectCard.module.css';
+import { CardContainer } from 'src/styled/Containers';
+import { CardDescription, CardTitle } from 'src/styled/Text';
 
 interface IProjectCardProps {
   modalOpen: boolean;
@@ -15,17 +17,21 @@ const ProjectCard = ({
   setProject,
 }: IProjectCardProps) => {
   return (
-    <section
-      className={styles.card}
+    <CardContainer
       onClick={() => {
         setProject(card.ref);
         modalOpen ? setModalOpen(false) : setModalOpen(true);
       }}
     >
-      <p className={styles.title}>{card.title}</p>
-      <p className={styles.description}>{card.type}</p>
-      <img className={styles.image} src={`https:${card.image}`} />
-    </section>
+      <CardTitle>{card.title}</CardTitle>
+      <CardDescription>{card.type}</CardDescription>
+      <Image
+        src={`https:${card.image}`}
+        width={220}
+        height={200}
+        style={{ borderRadius: '5px' }}
+      />
+    </CardContainer>
   );
 };
 

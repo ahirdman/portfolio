@@ -27,18 +27,6 @@ const Details = styled.p`
   color: #868686;
 `;
 
-const Column = styled.div`
-  height: 65vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const Row = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
 const VerticalTitle = styled.p`
   font-weight: 700;
   font-size: 16px;
@@ -64,31 +52,6 @@ const BodyText = styled.p`
   color: #d3d3d3;
 `;
 
-const HeroImage = styled.div`
-  width: 100%;
-  height: 15vh;
-  object-fit: cover;
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(63, 63, 63, 0.5) 51.56%,
-      #3f3f3f 100%
-    ),
-    url(/images/hero.jpg);
-`;
-
-const BDrop = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #000000e1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const ModalTitle = styled.p`
   font-weight: 700;
   font-size: 20px;
@@ -109,16 +72,28 @@ const ModalBody = styled.p`
   color: #000000;
 `;
 
+const CardTitle = styled.p`
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+`;
+
+const CardDescription = styled.p`
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 5px;
+`;
+
 export {
   Header,
   Title,
   Details,
-  Column,
   VerticalTitle,
-  Row,
   BodyText,
-  HeroImage,
-  BDrop,
   ModalTitle,
   ModalBody,
+  CardTitle,
+  CardDescription,
 };
