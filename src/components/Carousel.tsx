@@ -2,6 +2,7 @@ import ProjectCard from './ProjectCard';
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { ICard } from 'src/interface';
+import { nestArray } from '../utils';
 
 interface ICarouselProps {
   modalOpen: boolean;
@@ -16,23 +17,29 @@ const Carousel = ({
   cards,
   setProject,
 }: ICarouselProps) => {
+  const nestedCards = nestArray(cards);
+  console.log(nestedCards);
   return (
     <CarouselProvider
       naturalSlideWidth={100}
-      naturalSlideHeight={100}
-      totalSlides={cards.length}
-      visibleSlides={1}
+      naturalSlideHeight={200}
+      totalSlides={nestedCards.length}
+      visibleSlides={1.5}
       lockOnWindowScroll={true}
     >
       <Slider>
-        {cards.map((card: ICard, index: number) => (
+        {nestedCards.map((nested: any, index: number) => (
           <Slide index={index} key={index}>
-            <ProjectCard
-              modalOpen={modalOpen}
-              setModalOpen={setModalOpen}
-              card={card}
-              setProject={setProject}
-            />
+            {nested.map((card: ICard) => {
+              return (
+                <ProjectCard
+                  modalOpen={modalOpen}
+                  setModalOpen={setModalOpen}
+                  card={card}
+                  setProject={setProject}
+                />
+              );
+            })}
           </Slide>
         ))}
       </Slider>
