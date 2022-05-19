@@ -21,6 +21,7 @@ const Title = styled.p<ITitle>`
 const HeroTitle = styled(Title)`
   text-align: left;
   padding-top: 0;
+  line-height: 2.5rem;
 `;
 
 const HeroBody = styled.p`

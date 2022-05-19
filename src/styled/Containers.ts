@@ -12,7 +12,7 @@ const HeroColumn = styled(Column)`
   bottom: 2rem;
   margin-right: 5rem;
   margin-left: 5rem;
-  height: 50vh;
+  height: 45vh;
   justify-content: space-between;
 `;
 
