@@ -48,7 +48,7 @@ const About = () => {
                 auctor purus luctus enim egestas, ac scelerisque ante pulvinar.
               </BodyText>
             </Row>
-            <Row>
+            <Row style={{ marginTop: '3rem' }}>
               <VerticalTitle>EXPERIENCE</VerticalTitle>
               <BodyText>
                 <strong>/salt</strong> An intensive Full Stack JavaScript
