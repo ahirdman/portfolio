@@ -30,9 +30,10 @@ const Carousel = ({
       <Slider>
         {nestedCards.map((nested: any, index: number) => (
           <Slide index={index} key={index}>
-            {nested.map((card: ICard) => {
+            {nested.map((card: ICard, index: number) => {
               return (
                 <ProjectCard
+                  key={index}
                   modalOpen={modalOpen}
                   setModalOpen={setModalOpen}
                   card={card}
