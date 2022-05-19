@@ -13,9 +13,9 @@ const Carousel = ({ modalOpen, setModalOpen, cards }: ICarouselProps) => {
   return (
     <CarouselProvider
       naturalSlideWidth={100}
-      naturalSlideHeight={190}
+      naturalSlideHeight={100}
       totalSlides={cards.length}
-      visibleSlides={1.5}
+      visibleSlides={1}
       lockOnWindowScroll={true}
     >
       <Slider>
