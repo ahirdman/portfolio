@@ -12,6 +12,7 @@ const Hero = () => {
         layout="responsive"
         width={300}
         height={200}
+        priority={true}
         className={styles.hero}
       />
       <HeroColumn>
