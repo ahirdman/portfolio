@@ -1,13 +1,46 @@
-import { Header, Title, Details, ModalTitle, ModalBody } from '../styled/Text';
+import {
+  Header,
+  Title,
+  Details,
+  ModalTitle,
+  ModalBody,
+  SmallBold,
+  TextLink,
+} from '../styled/Text';
 import { motion, Variants } from 'framer-motion';
-import { Close } from '../assets/index';
+import { ChevronsRight, Close } from '../assets/index';
 import Backdrop from './Backdrop';
 import styles from '../../styles/ProjectModal.module.css';
 import Image from 'next/image';
+import { ModalLinks, ToolsContainer } from 'src/styled/Containers';
+
+interface IProjectDetails {
+  details: string;
+  gitHub: string;
+  deployed?: string;
+  result: string;
+  screenshot: {
+    metadata: [object];
+    sys: [object];
+    fields: {
+      descrption: string;
+      file: {
+        contentType: string;
+        details: [object];
+        fileName: string;
+        url: string;
+      };
+      title: string;
+    };
+  };
+  title: string;
+  tools: string[];
+  why: string;
+}
 
 interface IProjectModalProps {
   handleClose: any;
-  project?: any;
+  project?: IProjectDetails;
 }
 
 const popUp: Variants = {
@@ -43,24 +76,53 @@ const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
         animate="visible"
         exit="exit"
       >
-        <Header>
-          <Title grey>{project.title}</Title>
-          <Details>{project.details}</Details>
-        </Header>
-        <div className={styles.image}>
-          <Image
-            src={`https:${project.screenshot.fields.file.url}`}
-            width={192}
-            height={108}
-            priority={true}
-            layout="responsive"
-            style={{ borderRadius: '5px' }}
-          />
-        </div>
-        <ModalTitle>WHY</ModalTitle>
-        <ModalBody>{project.why}</ModalBody>
-        <ModalTitle>RESULT</ModalTitle>
-        <ModalBody>{project.result}</ModalBody>
+        {project && (
+          <>
+            <Header>
+              <Title grey>{project.title}</Title>
+              <Details>{project.details}</Details>
+            </Header>
+            <div className={styles.image}>
+              <Image
+                src={`https:${project.screenshot.fields.file.url}`}
+                width={192}
+                height={108}
+                priority={true}
+                layout="responsive"
+                style={{ borderRadius: '5px' }}
+              />
+            </div>
+            <ToolsContainer>
+              {project.tools.map((tool: string, index: number) => (
+                <SmallBold key={index}>{tool}</SmallBold>
+              ))}
+            </ToolsContainer>
+            <ModalTitle>WHY</ModalTitle>
+            <ModalBody>{project.why}</ModalBody>
+            <ModalTitle>RESULT</ModalTitle>
+            <ModalBody>{project.result}</ModalBody>
+            <ModalLinks>
+              <TextLink
+                href={project.gitHub}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.link}
+              >
+                github repo
+                <ChevronsRight className={styles.chevron} />
+              </TextLink>
+              <TextLink
+                href={project.deployed}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.link}
+              >
+                deployed app
+                <ChevronsRight className={styles.chevron} />
+              </TextLink>
+            </ModalLinks>
+          </>
+        )}
       </motion.div>
     </Backdrop>
   );

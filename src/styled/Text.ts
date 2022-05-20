@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 interface ITitle {
   readonly grey?: boolean;
@@ -75,8 +74,6 @@ const ModalTitle = styled.p`
   color: #000000;
   text-align: left;
   width: 90vw;
-  margin-top: 20px;
-  margin-bottom: 5px;
 `;
 
 const ModalBody = styled.p`
@@ -87,6 +84,7 @@ const ModalBody = styled.p`
   width: 90vw;
   color: #000000;
   text-align: left;
+  margin-bottom: 2rem;
 `;
 
 const CardTitle = styled.p`
@@ -114,6 +112,26 @@ const NavLink = styled.p`
   }
 `;
 
+const SmallBold = styled.p`
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.03em;
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #9e9e9e;
+`;
+
+const TextLink = styled.a`
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.03em;
+  color: #000000;
+  display: flex;
+  align-items: center;
+`;
+
 export {
   Header,
   Title,
@@ -127,4 +145,6 @@ export {
   NavLink,
   HeroTitle,
   HeroBody,
+  SmallBold,
+  TextLink,
 };

@@ -34,18 +34,29 @@ const Close = ({ className }: ISVGProps) => (
   <svg
     width="18"
     height="18"
-    viewBox="0 0 18 18"
     fill="none"
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M1 1L17.1111 17.1111" stroke="#B8B8B8" strokeLinecap="round" />
     <path
-      d="M17.1111 1L0.999973 17.1111"
+      d="m1 1 16.111 16.111M17.111 1 1 17.111"
+      className={className}
       stroke="#B8B8B8"
-      strokeLinecap="round"
     />
   </svg>
 );
 
-export { Github, LinkedIn, Close };
+const ChevronsRight = ({ className }: ISVGProps) => (
+  <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M9.208 12.042 12.75 8.5 9.208 4.958M4.25 12.042 7.792 8.5 4.25 4.958"
+      stroke="#000"
+      className={className}
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export { Github, LinkedIn, Close, ChevronsRight };

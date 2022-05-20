@@ -29,6 +29,13 @@ const Row = styled.div`
   justify-content: center;
 `;
 
+const ModalLinks = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+`;
+
 const SlidingRow = styled(motion.div)`
   display: flex;
   justify-content: center;
@@ -70,6 +77,15 @@ const CardContainer = styled.div`
   letter-spacing: 0.03em;
 `;
 
+const ToolsContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 4rem;
+`;
+
 export {
   Column,
   SlidingColumn,
@@ -82,4 +98,6 @@ export {
   GreySection,
   NavContainer,
   CardContainer,
+  ToolsContainer,
+  ModalLinks,
 };
