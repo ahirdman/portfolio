@@ -1,6 +1,14 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Column = styled.div`
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const SlidingColumn = styled(motion.div)`
   height: 65vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +25,11 @@ const HeroColumn = styled(Column)`
 `;
 
 const Row = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const SlidingRow = styled(motion.div)`
   display: flex;
   justify-content: center;
 `;
@@ -52,15 +65,17 @@ const NavContainer = styled.div`
 `;
 
 const CardContainer = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   margin-left: 60px;
   letter-spacing: 0.03em;
 `;
 
 export {
   Column,
+  SlidingColumn,
   HeroColumn,
   Row,
+  SlidingRow,
   Centered,
   MainWrapper,
   WhiteSection,

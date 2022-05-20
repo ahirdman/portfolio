@@ -1,5 +1,5 @@
 import { Header, Title, Details, ModalTitle, ModalBody } from '../styled/Text';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Close } from '../assets/index';
 import Backdrop from './Backdrop';
 import styles from '../../styles/ProjectModal.module.css';
@@ -10,7 +10,7 @@ interface IProjectModalProps {
   project?: any;
 }
 
-const popUp = {
+const popUp: Variants = {
   hidden: {
     y: '100vh',
     opacity: 0,
@@ -52,6 +52,7 @@ const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
             src={`https:${project.screenshot.fields.file.url}`}
             width={192}
             height={108}
+            priority={true}
             layout="responsive"
             style={{ borderRadius: '5px' }}
           />

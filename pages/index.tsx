@@ -7,7 +7,7 @@ import Contact from '../src/components/Contact';
 import { getAllProjects } from '../src/contentful';
 import { useState } from 'react';
 import { MainWrapper } from 'src/styled/Containers';
-import Head from 'next/head';
+import Meta from 'src/components/Meta';
 
 interface IHomeProps {
   cards?: any;
@@ -18,9 +18,7 @@ const Home: NextPage = ({ cards }: IHomeProps) => {
 
   return (
     <>
-      <Head>
-        <title>Alexande Hirdman - Portfolio</title>
-      </Head>
+      <Meta />
       <MainWrapper>
         {!modalOpen && <Navbar />}
         <Hero />
