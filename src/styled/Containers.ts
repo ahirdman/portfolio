@@ -89,6 +89,7 @@ const ToolsContainer = styled.div`
 const AccordionContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
 `;
 
 const AccordionRow = styled.div`
