@@ -52,11 +52,110 @@ const ChevronsRight = ({ className }: ISVGProps) => (
       d="M9.208 12.042 12.75 8.5 9.208 4.958M4.25 12.042 7.792 8.5 4.25 4.958"
       stroke="#000"
       className={className}
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
-export { Github, LinkedIn, Close, ChevronsRight };
+const Planet = ({ className }: ISVGProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="none"
+    viewBox="0 0 32 32"
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M16 27c6.075 0 11-4.925 11-11S22.075 5 16 5 5 9.925 5 16s4.925 11 11 11Z"
+    />
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M23.025 7.537c3.463-.95 6.063-.862 6.838.463 1.375 2.387-3.713 7.912-11.363 12.325C10.85 24.738 3.525 26.388 2.138 24c-.763-1.325.462-3.625 3.012-6.15"
+    />
+  </svg>
+);
+
+const Jeep = ({ className }: ISVGProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="none"
+    viewBox="0 0 32 32"
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M27.5 22v4a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-4m-13 0v4a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-4M2 12h28m-12 4v6m-4-6v6"
+    />
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M27.5 22h-23V12l.875-6.138A1 1 0 0 1 6.362 5h19.275a1 1 0 0 1 .988.862L27.5 12v10Z"
+    />
+    <path
+      fill="#fff"
+      d="M9 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm14 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
+    />
+  </svg>
+);
+
+const Paw = ({ className }: ISVGProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="none"
+    viewBox="0 0 32 32"
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M26.5 16a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm-21 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm6-6a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm9 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm2.4 9.488a5.45 5.45 0 0 1-2.575-3.25v0a4.5 4.5 0 0 0-8.65 0 5.45 5.45 0 0 1-2.575 3.25 4 4 0 0 0 3.463 7.2 8.975 8.975 0 0 1 6.874 0 4 4 0 0 0 3.462-7.2Z"
+    />
+  </svg>
+);
+
+const CaretRight = ({ className }: ISVGProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="none"
+    viewBox="0 0 20 20"
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M7.5 3.75 13.75 10 7.5 16.25"
+    />
+  </svg>
+);
+
+export {
+  Github,
+  LinkedIn,
+  Close,
+  ChevronsRight,
+  Planet,
+  Jeep,
+  Paw,
+  CaretRight,
+};

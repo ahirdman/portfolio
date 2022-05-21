@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
+import { getAllProjects } from '../src/contentful';
+import { useState } from 'react';
+import { MainWrapper } from 'src/styled/Containers';
 import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
 import Projects from '../src/components/Projects';
 import About from '../src/components/About';
 import Contact from '../src/components/Contact';
-import { getAllProjects } from '../src/contentful';
-import { useState } from 'react';
-import { MainWrapper } from 'src/styled/Containers';
 import Meta from 'src/components/Meta';
 
 interface IHomeProps {

@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import { HeroColumn, GreySection } from 'src/styled/Containers';
 import { HeroBody, Header, HeroTitle } from 'src/styled/Text';
 import styles from '../../styles/Hero.module.css';
+import Image from 'next/image';
 
 const Hero = () => {
   return (

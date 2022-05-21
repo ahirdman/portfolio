@@ -1,6 +1,6 @@
 import { Centered, WhiteSection } from '../styled/Containers';
 import { Header, Title, Details } from '../styled/Text';
-import { Github, LinkedIn } from '../assets';
+import { Github, LinkedIn } from '../svg';
 import styles from '../../styles/Contact.module.css';
 
 const Contact = () => {

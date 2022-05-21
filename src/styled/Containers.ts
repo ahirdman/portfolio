@@ -86,6 +86,31 @@ const ToolsContainer = styled.div`
   height: 4rem;
 `;
 
+const AccordionContainer = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+`;
+
+const AccordionRow = styled.div`
+  display: flex;
+  height: 80px;
+  margin-bottom: 20px;
+  overflow: hidden;
+`;
+
+const AccordionSvg = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 6rem;
+`;
+
+const Container = styled.main`
+  margin: 1rem;
+`;
+
 export {
   Column,
   SlidingColumn,
@@ -100,4 +125,8 @@ export {
   CardContainer,
   ToolsContainer,
   ModalLinks,
+  AccordionContainer,
+  AccordionRow,
+  AccordionSvg,
+  Container,
 };

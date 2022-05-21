@@ -2,26 +2,150 @@ import {
   Header,
   Title,
   Details,
-  VerticalTitle,
-  BodyText,
+  AccBody,
+  AccTitle,
+  AccHeader,
 } from '../styled/Text';
-import { SlidingRow, SlidingColumn, GreySection } from 'src/styled/Containers';
-import { Variants } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import {
+  AccordionContainer,
+  AccordionRow,
+  GreySection,
+  AccordionSvg,
+  Container,
+} from 'src/styled/Containers';
+import { useState } from 'react';
+import styles from '../../styles/About.module.css';
+import { CaretRight, Jeep, Paw, Planet } from 'src/svg';
 
-const paragraphVariants: Variants = {
-  offscreen: {
-    y: '50vh',
-    opacity: 0,
+interface IAccordionProps {
+  section: any;
+  expanded: boolean | number;
+  setExpanded: any;
+}
+
+const AccordionSection = () => {
+  return (
+    <AccordionContainer
+      variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
+      transition={{ duration: 0.8 }}
+      className="content-placeholder"
+    >
+      <AccordionRow>
+        <AccordionSvg>
+          <Planet className={styles.svg} />
+        </AccordionSvg>
+        <article>
+          <AccTitle>stargazing</AccTitle>
+          <AccBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu
+            facilisis.
+          </AccBody>
+        </article>
+      </AccordionRow>
+      <AccordionRow>
+        <AccordionSvg>
+          <Jeep className={styles.svg} />
+        </AccordionSvg>
+        <div>
+          <AccTitle>roadtrips</AccTitle>
+          <AccBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu
+            facilisis.
+          </AccBody>
+        </div>
+      </AccordionRow>
+      <AccordionRow>
+        <AccordionSvg>
+          <Paw className={styles.svg} />
+        </AccordionSvg>
+        <div>
+          <AccTitle>cornelis</AccTitle>
+          <AccBody>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu
+            facilisis.
+          </AccBody>
+        </div>
+      </AccordionRow>
+    </AccordionContainer>
+  );
+};
+
+const accordionJSX = [
+  {
+    id: 0,
+    header: 'LEISURE',
+    jsx: <AccordionSection />,
   },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      bounce: 0.3,
-      duration: 0.8,
-    },
+  {
+    id: 1,
+    header: 'SKILLS',
+    jsx: <AccordionSection />,
   },
+  {
+    id: 2,
+    header: 'DEV VALUES',
+    jsx: <AccordionSection />,
+  },
+];
+
+const AboutSections = () => {
+  const [expanded, setExpanded] = useState<false | number>(0);
+  return (
+    <>
+      {accordionJSX.map((sec, index) => (
+        <Accordion
+          key={index}
+          section={sec}
+          expanded={expanded}
+          setExpanded={setExpanded}
+        />
+      ))}
+    </>
+  );
+};
+
+const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
+  const isOpen = section.id === expanded;
+  return (
+    <Container>
+      <motion.header
+        initial={false}
+        animate={{ backgroundColor: isOpen ? '#606060' : '#3F3F3F' }}
+        onClick={() => setExpanded(isOpen ? false : section.id)}
+        className={styles.header}
+      >
+        <AccHeader>{section.header}</AccHeader>
+        <motion.div
+          initial={false}
+          className={styles.caretContainer}
+          animate={{
+            rotate: isOpen ? 90 : 0,
+          }}
+        >
+          <CaretRight className={styles.caret} />
+        </motion.div>
+      </motion.header>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.section
+            key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            className={styles.section}
+            variants={{
+              open: { opacity: 1, height: 'auto' },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+          >
+            {section.jsx}
+          </motion.section>
+        )}
+      </AnimatePresence>
+    </Container>
+  );
 };
 
 const About = () => {
@@ -31,38 +155,7 @@ const About = () => {
         <Title>ABOUT</Title>
         <Details>Who is Alexander?</Details>
       </Header>
-      <SlidingColumn
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
-      >
-        <SlidingRow variants={paragraphVariants}>
-          <VerticalTitle>ABOUT ME</VerticalTitle>
-          <BodyText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-            nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-            tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-            feugiat lectus. Class aptent taciti sociosqu ad litora torquent per
-            conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus
-            enim egestas, ac scelerisque ante pulvinar.
-          </BodyText>
-        </SlidingRow>
-        <SlidingRow variants={paragraphVariants}>
-          <VerticalTitle>EXPERIENCE</VerticalTitle>
-          <BodyText>
-            <strong>/salt</strong> An intensive Full Stack JavaScript Developer
-            training program. Besides learning the necessary tools for
-            development, the course focused on TDD, Agile & Mob Programming
-            <br />
-            <br />
-            <br />
-            <strong>Lådan</strong> An intensive Full Stack JavaScript Developer
-            training program. Besides learning the necessary tools for
-            development, the course focused on TDD, Agile & Mob Programming
-          </BodyText>
-        </SlidingRow>
-      </SlidingColumn>
+      <AboutSections />
     </GreySection>
   );
 };

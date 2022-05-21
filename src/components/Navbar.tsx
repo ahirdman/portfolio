@@ -1,7 +1,7 @@
+import { NavContainer } from '../styled/Containers';
+import { NavLink } from 'src/styled/Text';
 import { Link } from 'react-scroll';
 import { Nav } from 'src/styled/Elements';
-import { NavLink } from 'src/styled/Text';
-import { NavContainer } from '../styled/Containers';
 
 const Navbar = () => {
   return (
