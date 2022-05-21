@@ -103,12 +103,12 @@ const AccordionSvg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 6rem;
 `;
 
 const Container = styled.main`
-  margin: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 `;
 
 export {
