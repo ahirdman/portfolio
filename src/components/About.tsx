@@ -16,7 +16,18 @@ import {
 } from 'src/styled/Containers';
 import { useState } from 'react';
 import styles from '../../styles/About.module.css';
-import { CaretRight, Jeep, Paw, Planet } from 'src/svg';
+import {
+  CaretRight,
+  Database,
+  Jeep,
+  Paw,
+  Planet,
+  React,
+  Team,
+  Test,
+  TypeScript,
+  User,
+} from 'src/svg';
 
 interface IAccordionProps {
   section: any;
@@ -24,68 +35,105 @@ interface IAccordionProps {
   setExpanded: any;
 }
 
-const AccordionSection = () => {
+interface IContent {
+  svg: any;
+  title: string;
+  body: string;
+}
+
+interface IAccordionSection {
+  content: IContent[];
+}
+
+const AccordionSection = ({ content }: IAccordionSection) => {
   return (
     <AccordionContainer
       variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
       transition={{ duration: 0.8 }}
       className="content-placeholder"
     >
-      <AccordionRow>
-        <AccordionSvg>
-          <Planet className={styles.svg} />
-        </AccordionSvg>
-        <article>
-          <AccTitle>stargazing</AccTitle>
-          <AccBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu
-            facilisis.
-          </AccBody>
-        </article>
-      </AccordionRow>
-      <AccordionRow>
-        <AccordionSvg>
-          <Jeep className={styles.svg} />
-        </AccordionSvg>
-        <div>
-          <AccTitle>roadtrips</AccTitle>
-          <AccBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu
-            facilisis.
-          </AccBody>
-        </div>
-      </AccordionRow>
-      <AccordionRow>
-        <AccordionSvg>
-          <Paw className={styles.svg} />
-        </AccordionSvg>
-        <div>
-          <AccTitle>cornelis</AccTitle>
-          <AccBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu
-            facilisis.
-          </AccBody>
-        </div>
-      </AccordionRow>
+      {content.map((content: IContent, index: number) => (
+        <AccordionRow key={index}>
+          <AccordionSvg>{content.svg}</AccordionSvg>
+          <article>
+            <AccTitle>{content.title}</AccTitle>
+            <AccBody>{content.body}</AccBody>
+          </article>
+        </AccordionRow>
+      ))}
     </AccordionContainer>
   );
+};
+
+const content = {
+  leisure: [
+    {
+      svg: <Planet />,
+      title: 'stargazing',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+    {
+      svg: <Jeep />,
+      title: 'roadtrips',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+    {
+      svg: <Paw />,
+      title: 'cornelis',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+  ],
+  skills: [
+    {
+      svg: <TypeScript />,
+      title: 'languages',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+    {
+      svg: <React />,
+      title: 'frontend',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+    {
+      svg: <Database />,
+      title: 'backend',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+  ],
+  dev: [
+    {
+      svg: <Test />,
+      title: 'tdd',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+    {
+      svg: <Team />,
+      title: 'team',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+    {
+      svg: <User />,
+      title: 'user first',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
+    },
+  ],
 };
 
 const accordionJSX = [
   {
     id: 0,
     header: 'LEISURE',
-    jsx: <AccordionSection />,
+    jsx: <AccordionSection content={content.leisure} />,
   },
   {
     id: 1,
     header: 'SKILLS',
-    jsx: <AccordionSection />,
+    jsx: <AccordionSection content={content.skills} />,
   },
   {
     id: 2,
     header: 'DEV VALUES',
-    jsx: <AccordionSection />,
+    jsx: <AccordionSection content={content.dev} />,
   },
 ];
 
