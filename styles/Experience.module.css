@@ -1,0 +1,50 @@
+.svg {
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.cardContainer {
+  width: 60vw;
+  margin-left: 10vw;
+}
+
+.card {
+  margin-bottom: 5vh;
+}
+
+.place {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #000000;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #000000;
+}
+
+.body {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #000000;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+.svg {
+  margin: 10px;
+}

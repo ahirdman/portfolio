@@ -6,7 +6,7 @@ import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
 import Projects from '../src/components/Projects';
 import About from '../src/components/About';
-import Contact from '../src/components/Contact';
+import Experience from '../src/components/Experience';
 import Meta from 'src/components/Meta';
 
 interface IHomeProps {
@@ -28,7 +28,7 @@ const Home: NextPage = ({ cards }: IHomeProps) => {
           cards={cards}
         />
         <About />
-        <Contact />
+        <Experience />
       </MainWrapper>
     </>
   );

@@ -6,16 +6,18 @@ import {
   AccTitle,
   AccHeader,
 } from '../styled/Text';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import {
   AccordionContainer,
   AccordionRow,
   GreySection,
   AccordionSvg,
   Container,
+  CenteredMotion,
+  HeaderMotion,
+  SectionMotion,
 } from 'src/styled/Containers';
-import { useState } from 'react';
-import styles from '../../styles/About.module.css';
+import { ReactNode, useState } from 'react';
 import {
   CaretRight,
   Database,
@@ -36,7 +38,7 @@ interface IAccordionProps {
 }
 
 interface IContent {
-  svg: any;
+  svg: ReactNode;
   title: string;
   body: string;
 }
@@ -50,7 +52,6 @@ const AccordionSection = ({ content }: IAccordionSection) => {
     <AccordionContainer
       variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
       transition={{ duration: 0.8 }}
-      className="content-placeholder"
     >
       {content.map((content: IContent, index: number) => (
         <AccordionRow key={index}>
@@ -157,31 +158,28 @@ const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
   const isOpen = section.id === expanded;
   return (
     <Container>
-      <motion.header
+      <HeaderMotion
         initial={false}
         animate={{ backgroundColor: isOpen ? '#606060' : '#3F3F3F' }}
         onClick={() => setExpanded(isOpen ? false : section.id)}
-        className={styles.header}
       >
         <AccHeader>{section.header}</AccHeader>
-        <motion.div
+        <CenteredMotion
           initial={false}
-          className={styles.caretContainer}
           animate={{
             rotate: isOpen ? 90 : 0,
           }}
         >
-          <CaretRight className={styles.caret} />
-        </motion.div>
-      </motion.header>
+          <CaretRight />
+        </CenteredMotion>
+      </HeaderMotion>
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.section
+          <SectionMotion
             key="content"
             initial="collapsed"
             animate="open"
             exit="collapsed"
-            className={styles.section}
             variants={{
               open: { opacity: 1, height: 'auto' },
               collapsed: { opacity: 0, height: 0 },
@@ -189,7 +187,7 @@ const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
             transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
             {section.jsx}
-          </motion.section>
+          </SectionMotion>
         )}
       </AnimatePresence>
     </Container>

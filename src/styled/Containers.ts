@@ -36,17 +36,18 @@ const ModalLinks = styled.div`
   width: 100%;
 `;
 
-const SlidingRow = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-`;
-
 const Centered = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 60vh;
+  /* width: 100vw;
+  height: 60vh; */
+`;
+
+const CenteredMotion = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const MainWrapper = styled.div`
@@ -89,6 +90,7 @@ const ToolsContainer = styled.div`
 const AccordionContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  transform-origin: top center;
   padding-left: 1rem;
 `;
 
@@ -112,12 +114,28 @@ const Container = styled.main`
   padding-left: 1rem;
 `;
 
+const HeaderMotion = styled(motion.header)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  height: 50px;
+  margin-bottom: 20px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+`;
+
+const SectionMotion = styled(motion.section)`
+  overflow: hidden;
+`;
+
 export {
   Column,
   SlidingColumn,
   HeroColumn,
   Row,
-  SlidingRow,
   Centered,
   MainWrapper,
   WhiteSection,
@@ -130,4 +148,7 @@ export {
   AccordionRow,
   AccordionSvg,
   Container,
+  CenteredMotion,
+  HeaderMotion,
+  SectionMotion,
 };

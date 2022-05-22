@@ -6,8 +6,8 @@ interface ISVGProps {
 
 const Github = ({ fill, className }: ISVGProps) => (
   <svg
-    width="40"
-    height="40"
+    width="30"
+    height="30"
     viewBox="0 0 40 40"
     fill={fill}
     className={className}
@@ -19,8 +19,8 @@ const Github = ({ fill, className }: ISVGProps) => (
 
 const LinkedIn = ({ fill, className }: ISVGProps) => (
   <svg
-    width="40"
-    height="40"
+    width="30"
+    height="30"
     viewBox="0 0 40 40"
     fill={fill}
     className={className}
@@ -321,6 +321,36 @@ const Test = ({ className }: ISVGProps) => (
   </svg>
 );
 
+const Mail = ({ className }: ISVGProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="30"
+    fill="none"
+    viewBox="0 0 30 30"
+  >
+    <path
+      fill="#414141"
+      d="M15 0C6.72 0 0 6.72 0 15c0 8.28 6.72 15 15 15h7.5v-3H15C8.49 27 3 21.51 3 15S8.49 3 15 3s12 5.49 12 12v2.145c0 1.185-1.065 2.355-2.25 2.355s-2.25-1.17-2.25-2.355V15c0-4.14-3.36-7.5-7.5-7.5-4.14 0-7.5 3.36-7.5 7.5 0 4.14 3.36 7.5 7.5 7.5 2.07 0 3.96-.84 5.31-2.205.975 1.335 2.655 2.205 4.44 2.205 2.955 0 5.25-2.4 5.25-5.355V15c0-8.28-6.72-15-15-15Zm0 19.5c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5Z"
+    />
+  </svg>
+);
+
+const LineArrow = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="509"
+    fill="none"
+    viewBox="0 0 16 509"
+  >
+    <path
+      fill="#000"
+      d="M9 1a1 1 0 0 0-2 0h2ZM7.293 508.707a1 1 0 0 0 1.414 0l6.364-6.364a1 1 0 1 0-1.414-1.414L8 506.586l-5.657-5.657a1 1 0 1 0-1.414 1.414l6.364 6.364ZM7 1v507h2V1H7Z"
+    />
+  </svg>
+);
+
 export {
   Github,
   LinkedIn,
@@ -336,4 +366,6 @@ export {
   Test,
   User,
   Team,
+  Mail,
+  LineArrow,
 };
