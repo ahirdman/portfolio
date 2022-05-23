@@ -3,6 +3,34 @@ import { Header, Title, Details } from '../styled/Text';
 import { Github, LineArrow, LinkedIn, Mail } from '../svg';
 import styles from '../../styles/Experience.module.css';
 
+const content = [
+  {
+    title: 'Santa Monica College',
+    header: 'Design, Film Iconography',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
+    location: 'Los Angeles, USA - 2010',
+  },
+  {
+    title: 'CAP',
+    header: 'Agile Project Manager',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
+    location: 'Stockholm, Sweden - 2012',
+  },
+  {
+    title: '</Salt>',
+    header: 'Full Stack JavaScript Developer',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
+    location: 'Stockholm, Sweden - 2022',
+  },
+];
+
+interface ICard {
+  title: string;
+  header: string;
+  body: string;
+  location: string;
+}
+
 const Experience = () => {
   return (
     <WhiteSection id="experience">
@@ -13,39 +41,14 @@ const Experience = () => {
       <div className={styles.container}>
         <LineArrow />
         <div className={styles.cardContainer}>
-          <div className={styles.card}>
-            <h1 className={styles.place}>Santa Monica College</h1>
-            <h2 className={styles.header}>Design, Film Iconography</h2>
-            <p className={styles.body}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate
-              id euismod dignissim mauris. Ornare ullamcorper sed.
-            </p>
-            <p className={styles.body}>
-              Stockholm, Sweden - Jan 2012 - Mars 2012
-            </p>
-          </div>
-          <div className={styles.card}>
-            <h1 className={styles.place}>Santa Monica College</h1>
-            <h2 className={styles.header}>Design, Film Iconography</h2>
-            <p className={styles.body}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate
-              id euismod dignissim mauris. Ornare ullamcorper sed.
-            </p>
-            <p className={styles.body}>
-              Stockholm, Sweden - Jan 2012 - Mars 2012
-            </p>
-          </div>
-          <div className={styles.card}>
-            <h1 className={styles.place}>Santa Monica College</h1>
-            <h2 className={styles.header}>Design, Film Iconography</h2>
-            <p className={styles.body}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate
-              id euismod dignissim mauris. Ornare ullamcorper sed.
-            </p>
-            <p className={styles.body}>
-              Stockholm, Sweden - Jan 2012 - Mars 2012
-            </p>
-          </div>
+          {content.map((card: ICard) => (
+            <div className={styles.card}>
+              <h1 className={styles.title}>{card.title}</h1>
+              <h2 className={styles.header}>{card.header}</h2>
+              <p className={styles.body}>{card.body}</p>
+              <p className={styles.location}>{card.location}</p>
+            </div>
+          ))}
         </div>
       </div>
       <div className={styles.links}>

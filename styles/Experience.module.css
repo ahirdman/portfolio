@@ -1,11 +1,13 @@
 .container {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
 }
 
 .cardContainer {
-  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 55vw;
   margin-left: 10vw;
 }
 
@@ -13,28 +15,35 @@
   margin-bottom: 5vh;
 }
 
-.place {
-  font-weight: 600;
+.title {
+  font-weight: 700;
   font-size: 12px;
   line-height: 15px;
-
   color: #000000;
+  margin-bottom: 5px;
 }
 
 .header {
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
-
   color: #000000;
+  margin-bottom: 5px;
 }
 
 .body {
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-
   color: #000000;
+  margin-bottom: 5px;
+}
+
+.location {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  color: #656565;
 }
 
 .links {
@@ -44,4 +53,9 @@
 
 .svg {
   margin: 10px;
+}
+
+.svg:hover {
+  fill: rgb(208, 135, 16);
+  cursor: pointer;
 }
