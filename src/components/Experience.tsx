@@ -41,8 +41,8 @@ const Experience = () => {
       <div className={styles.container}>
         <LineArrow />
         <div className={styles.cardContainer}>
-          {content.map((card: ICard) => (
-            <div className={styles.card}>
+          {content.map((card: ICard, index: number) => (
+            <div className={styles.card} key={index}>
               <h1 className={styles.title}>{card.title}</h1>
               <h2 className={styles.header}>{card.header}</h2>
               <p className={styles.body}>{card.body}</p>
