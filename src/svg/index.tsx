@@ -339,7 +339,7 @@ const Mail = ({ className }: ISVGProps) => (
 const LineArrow = ({ className }: ISVGProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="45"
+    width="50"
     height="438"
     fill="none"
     viewBox="0 0 16 438"
@@ -351,7 +351,7 @@ const LineArrow = ({ className }: ISVGProps) => (
     />
     <path
       fill="#000"
-      d="m8 71 6 6-6 6-6-6zm0 142 6 6-6 6-6-6zm0 142 6 6-6 6-6-6z"
+      d="m8 81 6 6-6 6-6-6zm0 132 6 6-6 6-6-6zm0 129 6 6-6 6-6-6z"
     />
   </svg>
 );
