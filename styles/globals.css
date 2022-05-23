@@ -19,7 +19,7 @@ a {
 .carousel__dot-group {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .carousel__dot {

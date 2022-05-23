@@ -33,8 +33,8 @@ import {
 
 interface IAccordionProps {
   section: any;
-  expanded: boolean | number;
-  setExpanded: any;
+  expanded: false | number;
+  setExpanded: (expanded: false | number) => void;
 }
 
 interface IContent {
@@ -50,7 +50,7 @@ interface IAccordionSection {
 const AccordionSection = ({ content }: IAccordionSection) => {
   return (
     <AccordionContainer
-      variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
+      variants={{ collapsed: { scale: 1 }, open: { scale: 1 } }}
       transition={{ duration: 0.8 }}
     >
       {content.map((content: IContent, index: number) => (
@@ -138,22 +138,6 @@ const accordionJSX = [
   },
 ];
 
-const AboutSections = () => {
-  const [expanded, setExpanded] = useState<false | number>(0);
-  return (
-    <>
-      {accordionJSX.map((sec, index) => (
-        <Accordion
-          key={index}
-          section={sec}
-          expanded={expanded}
-          setExpanded={setExpanded}
-        />
-      ))}
-    </>
-  );
-};
-
 const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
   const isOpen = section.id === expanded;
   return (
@@ -191,6 +175,22 @@ const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
         )}
       </AnimatePresence>
     </Container>
+  );
+};
+
+const AboutSections = () => {
+  const [expanded, setExpanded] = useState<false | number>(0);
+  return (
+    <>
+      {accordionJSX.map((sec, index) => (
+        <Accordion
+          key={index}
+          section={sec}
+          expanded={expanded}
+          setExpanded={setExpanded}
+        />
+      ))}
+    </>
   );
 };
 

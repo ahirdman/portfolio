@@ -1,4 +1,4 @@
-import { Centered, WhiteSection } from '../styled/Containers';
+import { WhiteSection } from '../styled/Containers';
 import { Header, Title, Details } from '../styled/Text';
 import { Github, LineArrow, LinkedIn, Mail } from '../svg';
 import styles from '../../styles/Experience.module.css';
@@ -49,12 +49,7 @@ const Experience = () => {
         </div>
       </div>
       <div className={styles.links}>
-        <a
-          href="https://www.linkedin.com/in/hirdman/"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.svg}
-        >
+        <a href="mailto: hirdman.alex@icloud.com" className={styles.svg}>
           <Mail />
         </a>
         <a

@@ -74,7 +74,7 @@ const NavContainer = styled.div`
 
 const CardContainer = styled.div`
   margin-bottom: 1rem;
-  margin-left: 60px;
+  margin-left: 25%;
   letter-spacing: 0.03em;
 `;
 

@@ -25,7 +25,7 @@ import {
 interface IProjectProps {
   cards: ICard[];
   modalOpen: boolean;
-  setModalOpen: any;
+  setModalOpen: (modalOpen: boolean) => void;
 }
 
 interface IProjectDetails {
@@ -80,14 +80,14 @@ const popUp: Variants = {
 
 interface IProjectCardProps {
   modalOpen: boolean;
-  setModalOpen: any;
+  setModalOpen: (modalOpen: boolean) => void;
   card: ICard;
   setProject: any;
 }
 
 interface ICarouselProps {
   modalOpen: boolean;
-  setModalOpen: any;
+  setModalOpen: (modalOpen: boolean) => void;
   cards: ICard[];
   setProject: any;
 }
@@ -121,11 +121,12 @@ const Carousel = ({
   return (
     <CarouselProvider
       naturalSlideWidth={100}
-      naturalSlideHeight={185}
+      naturalSlideHeight={145}
       totalSlides={nestedCards.length}
-      visibleSlides={1.4}
+      visibleSlides={1}
       lockOnWindowScroll={true}
     >
+      <DotGroup showAsSelectedForCurrentSlideOnly={true} />
       <Slider>
         {nestedCards.map((nested: any, index: number) => (
           <Slide index={index} key={index}>
@@ -143,7 +144,6 @@ const Carousel = ({
           </Slide>
         ))}
       </Slider>
-      <DotGroup showAsSelectedForCurrentSlideOnly={true} />
     </CarouselProvider>
   );
 };
