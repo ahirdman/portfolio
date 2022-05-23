@@ -3,6 +3,7 @@ import { Header, Title, Details, Small } from '../styled/Text';
 import { Github, LineArrow, LinkedIn, Mail } from '../svg';
 import styles from '../../styles/Experience.module.css';
 import { Footer } from 'src/styled/Elements';
+import { IExpCard } from 'src/interface';
 
 const content = [
   {
@@ -25,18 +26,7 @@ const content = [
   },
 ];
 
-interface ICard {
-  title: string;
-  header: string;
-  body: string;
-  location: string;
-}
-
-interface IExperienceProps {
-  modalOpen: boolean;
-}
-
-const Experience = ({ modalOpen }: IExperienceProps) => {
+const Experience = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
   return (
@@ -48,7 +38,7 @@ const Experience = ({ modalOpen }: IExperienceProps) => {
       <div className={styles.container}>
         <LineArrow className={styles.arrow} />
         <div className={styles.cardContainer}>
-          {content.map((card: ICard, index: number) => (
+          {content.map((card: IExpCard, index: number) => (
             <div className={styles.card} key={index}>
               <h1 className={styles.title}>{card.title}</h1>
               <h2 className={styles.header}>{card.header}</h2>

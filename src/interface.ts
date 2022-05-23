@@ -5,6 +5,13 @@ interface ICard {
   ref: any;
 }
 
+interface IExpCard {
+  title: string;
+  header: string;
+  body: string;
+  location: string;
+}
+
 interface IProjectDetails {
   details: string;
   gitHub: string;
@@ -29,4 +36,4 @@ interface IProjectDetails {
   why: string;
 }
 
-export type { ICard, IProjectDetails };
+export type { ICard, IExpCard, IProjectDetails };

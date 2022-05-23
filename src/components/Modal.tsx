@@ -13,16 +13,11 @@ import {
   Title,
   Details,
 } from '../styled/Text';
-import { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 interface IBackdropProps {
-  children: any;
+  children: ReactNode;
   onClick: any;
-}
-
-interface IProjectModalProps {
-  handleClose: any;
-  project?: IProjectDetails;
 }
 
 const popUp: Variants = {
@@ -59,6 +54,11 @@ const Backdrop = ({ children, onClick }: IBackdropProps) => {
     </motion.div>
   );
 };
+
+interface IProjectModalProps {
+  handleClose: (modalOpen: boolean) => void;
+  project?: IProjectDetails;
+}
 
 export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   useEffect(() => {

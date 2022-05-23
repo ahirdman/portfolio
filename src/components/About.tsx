@@ -31,23 +31,17 @@ import {
   User,
 } from 'src/svg';
 
-interface IAccordionProps {
-  section: any;
-  expanded: false | number;
-  setExpanded: (expanded: false | number) => void;
-}
-
 interface IContent {
   svg: ReactNode;
   title: string;
   body: string;
 }
 
-interface IAccordionSection {
+interface IAccordionSectionProps {
   content: IContent[];
 }
 
-const AccordionSection = ({ content }: IAccordionSection) => {
+const AccordionSection = ({ content }: IAccordionSectionProps) => {
   return (
     <AccordionContainer
       variants={{ collapsed: { scale: 1 }, open: { scale: 1 } }}
@@ -138,6 +132,18 @@ const accordionJSX = [
   },
 ];
 
+interface ISection {
+  id: number;
+  header: string;
+  jsx: ReactNode;
+}
+
+interface IAccordionProps {
+  section: ISection;
+  expanded: false | number;
+  setExpanded: (expanded: false | number) => void;
+}
+
 const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
   const isOpen = section.id === expanded;
   return (
@@ -178,8 +184,12 @@ const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
   );
 };
 
-const AboutSections = () => {
-  const [expanded, setExpanded] = useState<false | number>(0);
+interface IAboutSectionsProps {
+  expanded: false | number;
+  setExpanded: (expanded: false | number) => void;
+}
+
+const AboutSections = ({ expanded, setExpanded }: IAboutSectionsProps) => {
   return (
     <>
       {accordionJSX.map((sec, index) => (
@@ -194,18 +204,15 @@ const AboutSections = () => {
   );
 };
 
-interface IAboutProps {
-  modalOpen: boolean;
-}
-
-const About = ({ modalOpen }: IAboutProps) => {
+const About = () => {
+  const [expanded, setExpanded] = useState<false | number>(0);
   return (
     <GreySection id="about">
       <Header>
         <Title>ABOUT</Title>
         <Details>Who is Alexander?</Details>
       </Header>
-      <AboutSections />
+      <AboutSections expanded={expanded} setExpanded={setExpanded} />
     </GreySection>
   );
 };

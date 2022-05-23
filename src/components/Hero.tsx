@@ -3,11 +3,7 @@ import { HeroBody, Header, HeroTitle, Orange } from 'src/styled/Text';
 import styles from '../../styles/Hero.module.css';
 import Image from 'next/image';
 
-interface IHeroProps {
-  modalOpen: boolean;
-}
-
-const Hero = ({ modalOpen }: IHeroProps) => {
+const Hero = () => {
   return (
     <GreySection id="hero">
       <Image
