@@ -39,7 +39,7 @@ const Experience = () => {
         <Details>Some of my experience</Details>
       </Header>
       <div className={styles.container}>
-        <LineArrow />
+        <LineArrow className={styles.arrow} />
         <div className={styles.cardContainer}>
           {content.map((card: ICard, index: number) => (
             <div className={styles.card} key={index}>

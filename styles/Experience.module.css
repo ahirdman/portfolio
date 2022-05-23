@@ -1,18 +1,26 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 5vh;
+  height: 55vh;
 }
 
 .cardContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 55vw;
-  margin-left: 10vw;
+  width: 100%;
+  margin-left: 5vw;
+}
+
+.arrow {
+  height: 100%;
 }
 
 .card {
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
 }
 
 .title {
