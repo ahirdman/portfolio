@@ -1,6 +1,7 @@
 .backdrop {
   position: absolute;
   top: 100vh;
+  /* top: 0; */
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -19,7 +20,6 @@
   border-top-right-radius: 20px;
   padding-right: 5vw;
   padding-left: 5vw;
-
   display: flex;
   flex-direction: column;
   align-items: center;

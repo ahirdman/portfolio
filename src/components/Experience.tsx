@@ -1,11 +1,12 @@
 import { WhiteSection } from '../styled/Containers';
-import { Header, Title, Details } from '../styled/Text';
+import { Header, Title, Details, Small } from '../styled/Text';
 import { Github, LineArrow, LinkedIn, Mail } from '../svg';
 import styles from '../../styles/Experience.module.css';
+import { Footer } from 'src/styled/Elements';
 
 const content = [
   {
-    title: 'Santa Monica College',
+    title: 'SANTA MONICA COLLEGE',
     header: 'Design, Film Iconography',
     body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
     location: 'Los Angeles, USA - 2010',
@@ -17,7 +18,7 @@ const content = [
     location: 'Stockholm, Sweden - 2012',
   },
   {
-    title: '</Salt>',
+    title: '</SALT>',
     header: 'Full Stack JavaScript Developer',
     body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
     location: 'Stockholm, Sweden - 2022',
@@ -31,7 +32,13 @@ interface ICard {
   location: string;
 }
 
-const Experience = () => {
+interface IExperienceProps {
+  modalOpen: boolean;
+}
+
+const Experience = ({ modalOpen }: IExperienceProps) => {
+  const date = new Date();
+  const currentYear = date.getFullYear();
   return (
     <WhiteSection id="experience">
       <Header>
@@ -72,6 +79,9 @@ const Experience = () => {
           <Github fill="#3f3f3f" />
         </a>
       </div>
+      <Footer>
+        <Small>&copy; Copyright {currentYear}, Alexander Hirdman</Small>
+      </Footer>
     </WhiteSection>
   );
 };

@@ -14,4 +14,11 @@ const Nav = styled.nav`
   z-index: 1;
 `;
 
-export { Nav };
+const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export { Nav, Footer };

@@ -21,14 +21,14 @@ const Home: NextPage = ({ cards }: IHomeProps) => {
       <Meta />
       <MainWrapper>
         {!modalOpen && <Navbar />}
-        <Hero />
+        <Hero modalOpen={modalOpen} />
         <Projects
           modalOpen={modalOpen}
           setModalOpen={setModalOpen}
           cards={cards}
         />
-        <About />
-        <Experience />
+        <About modalOpen={modalOpen} />
+        <Experience modalOpen={modalOpen} />
       </MainWrapper>
     </>
   );

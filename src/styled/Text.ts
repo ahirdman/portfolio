@@ -99,6 +99,7 @@ const CardDescription = styled.p`
   font-size: 12px;
   line-height: 18px;
   margin-bottom: 5px;
+  color: #626262;
 `;
 
 const NavLink = styled.p`
@@ -158,6 +159,18 @@ const AccHeader = styled.p`
   color: #ffffff;
 `;
 
+const Small = styled.small`
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+  color: #ababab;
+`;
+
+const Orange = styled.span`
+  color: #ff8a00;
+`;
+
 export {
   Header,
   Title,
@@ -176,4 +189,6 @@ export {
   AccBody,
   AccTitle,
   AccHeader,
+  Small,
+  Orange,
 };

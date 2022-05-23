@@ -194,7 +194,11 @@ const AboutSections = () => {
   );
 };
 
-const About = () => {
+interface IAboutProps {
+  modalOpen: boolean;
+}
+
+const About = ({ modalOpen }: IAboutProps) => {
   return (
     <GreySection id="about">
       <Header>
