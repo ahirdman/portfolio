@@ -49,6 +49,7 @@ const HeroImage = styled.div`
 
 const Hero = () => {
   const { width } = useWindowWidth();
+
   return (
     <GreySection id="hero">
       <HeroImage>
