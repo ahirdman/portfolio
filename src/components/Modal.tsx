@@ -19,7 +19,7 @@ import {
   Title,
   Details,
 } from '../styled/Text';
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useLayoutEffect, useRef } from 'react';
 
 interface IBackdropProps {
   children: ReactNode;
@@ -69,7 +69,7 @@ interface IProjectModalProps {
 export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (modalRef.current) disableBodyScroll(modalRef.current);
 
     return () => {
