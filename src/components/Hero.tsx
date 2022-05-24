@@ -54,7 +54,7 @@ const Hero = () => {
   const size: IWindow = useWindowSize();
 
   const layout =
-    size.width !== undefined && size.width > 600 ? 'fill' : 'responsive';
+    size.width !== undefined && size.width >= 600 ? 'fill' : 'responsive';
 
   return (
     <GreySection id="hero">
