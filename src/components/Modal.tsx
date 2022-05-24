@@ -3,6 +3,8 @@ import styles from '../../styles/Projects.module.css';
 import { ChevronsRight, Close } from '../svg/index';
 import { motion, Variants } from 'framer-motion';
 import { IProjectDetails } from 'src/interface';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
 import Image from 'next/image';
 import {
   ModalTitle,
@@ -13,7 +15,7 @@ import {
   Title,
   Details,
 } from '../styled/Text';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 interface IBackdropProps {
   children: ReactNode;
@@ -61,16 +63,21 @@ interface IProjectModalProps {
 }
 
 export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    if (modalRef.current) disableBodyScroll(modalRef.current);
+
     return () => {
-      document.body.style.overflow = 'auto';
+      if (modalRef.current) enableBodyScroll(modalRef.current);
     };
   }, []);
+
   return (
     <Backdrop onClick={handleClose}>
       <Close className={styles.close} />
       <motion.div
+        ref={modalRef}
         onClick={e => e.stopPropagation()}
         className={styles.modal}
         variants={popUp}
