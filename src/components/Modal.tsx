@@ -70,7 +70,13 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (modalRef.current) disableBodyScroll(modalRef.current);
+    const storedRequestAnimationFrame = window.requestAnimationFrame;
+
+    window.requestAnimationFrame = () => 42;
+    if (modalRef.current) {
+      disableBodyScroll(modalRef.current);
+      window.requestAnimationFrame = storedRequestAnimationFrame;
+    }
 
     return () => {
       clearAllBodyScrollLocks();
