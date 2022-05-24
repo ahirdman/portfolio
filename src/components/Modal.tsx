@@ -3,7 +3,11 @@ import styles from '../../styles/Projects.module.css';
 import { ChevronsRight, Close } from '../svg/index';
 import { motion, Variants } from 'framer-motion';
 import { IProjectDetails } from 'src/interface';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock';
 
 import Image from 'next/image';
 import {
@@ -69,7 +73,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
     if (modalRef.current) disableBodyScroll(modalRef.current);
 
     return () => {
-      if (modalRef.current) enableBodyScroll(modalRef.current);
+      clearAllBodyScrollLocks();
     };
   }, []);
 
