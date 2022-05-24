@@ -29,14 +29,16 @@ const HeroColumn = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-right: 10rem;
-  padding-left: 10rem;
   height: 42vh;
+  padding-right: 5rem;
+  padding-left: 5rem;
 
   @media screen and (min-width: 600px) {
     width: 50vw;
     height: 100vh;
     justify-content: center;
+    padding-right: 10rem;
+    padding-left: 10rem;
   }
 `;
 
@@ -50,13 +52,6 @@ const HeroImage = styled.div`
 
 const Hero = () => {
   const size: IWindow = useWindowSize();
-
-  // const layout = () => {
-  //   if (size.width !== undefined && size.width > 600) {
-  //     return "fill"
-  //   }
-  //   return "responsive"
-  // }
 
   const layout =
     size.width !== undefined && size.width > 600 ? 'fill' : 'responsive';
