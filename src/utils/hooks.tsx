@@ -8,7 +8,7 @@ const getWindowWidth = () => {
 };
 
 const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth] = useState(getWindowWidth());
+  const [windowWidth, setWindowWidth] = useState<any>();
 
   useEffect(() => {
     if (!window) return;
