@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const Column = styled.div`
-  height: 65vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+interface ISection {
+  readonly flex?: boolean;
+}
 
-const SlidingColumn = styled(motion.div)`
+const Column = styled.div`
   height: 65vh;
   display: flex;
   flex-direction: column;
@@ -31,8 +28,6 @@ const Centered = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 100vw;
-  height: 60vh; */
 `;
 
 const CenteredMotion = styled(motion.div)`
@@ -54,10 +49,11 @@ const WhiteSection = styled.div`
   background-color: white;
 `;
 
-const GreySection = styled(WhiteSection)`
+const GreySection = styled(WhiteSection)<ISection>`
   background-color: #3f3f3f;
+
   @media screen and (min-width: 600px) {
-    display: flex;
+    display: ${props => (props.flex ? 'flex' : '')};
   }
 `;
 
@@ -127,7 +123,6 @@ const SectionMotion = styled(motion.section)`
 
 export {
   Column,
-  SlidingColumn,
   Row,
   Centered,
   MainWrapper,

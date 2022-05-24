@@ -5,11 +5,31 @@ import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 import { Header, Title, Details } from '../styled/Text';
 import { AnimatePresence } from 'framer-motion';
 import { ProjectModal } from './Modal';
-import { ICard } from 'src/interface';
+import { ICard, IWindow } from 'src/interface';
 import { nestArray } from '../utils';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Link } from 'react-scroll';
+import useWindowSize from 'src/utils/hooks';
+import styled from 'styled-components';
+import { Magnifier } from 'src/svg';
+
+const SplitSection = styled.main`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 50vw;
+`;
+
+const NoSelection = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #f5f4f4;
+`;
 
 interface IProjectCardProps {
   modalOpen: boolean;
@@ -59,15 +79,19 @@ const Carousel = ({
   setProject,
 }: ICarouselProps) => {
   const nestedCards = nestArray(cards);
+  const size: IWindow = useWindowSize();
+
   return (
     <CarouselProvider
       naturalSlideWidth={100}
-      naturalSlideHeight={145}
+      naturalSlideHeight={size.width && size.width < 600 ? 145 : 200}
       totalSlides={nestedCards.length}
-      visibleSlides={1}
+      visibleSlides={size.width && size.width < 600 ? 1 : 2}
       lockOnWindowScroll={true}
     >
-      <DotGroup showAsSelectedForCurrentSlideOnly={true} />
+      {size.width && size.width < 600 && (
+        <DotGroup showAsSelectedForCurrentSlideOnly={true} />
+      )}
       <Slider>
         {nestedCards.map((nested: any, index: number) => (
           <Slide index={index} key={index}>
@@ -97,32 +121,73 @@ interface IProjectProps {
 
 const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
   const [project, setProject] = useState();
-  return (
-    <WhiteSection id="projects">
-      <Header>
-        <Title grey>PROJECTS</Title>
-        <Details>Some of my work</Details>
-      </Header>
-      <Carousel
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-        cards={cards}
-        setProject={setProject}
-      />
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter={true}
-        onExitComplete={() => null}
-      >
-        {project && modalOpen && (
-          <ProjectModal
-            project={project}
-            handleClose={() => setModalOpen(false)}
+  const size: IWindow = useWindowSize();
+
+  if (size.width && size.width < 600) {
+    return (
+      <WhiteSection id="projects">
+        <Header>
+          <Title grey>PROJECTS</Title>
+          <Details>Some of my work</Details>
+        </Header>
+        <Carousel
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+          cards={cards}
+          setProject={setProject}
+        />
+        <AnimatePresence
+          initial={false}
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {project && modalOpen && (
+            <ProjectModal
+              project={project}
+              handleClose={() => setModalOpen(false)}
+            />
+          )}
+        </AnimatePresence>
+      </WhiteSection>
+    );
+  } else {
+    return (
+      <WhiteSection id="projects" style={{ display: 'flex' }}>
+        <SplitSection>
+          <Header>
+            <Title grey>PROJECTS</Title>
+            <Details>Some of my work</Details>
+          </Header>
+          <Carousel
+            modalOpen={modalOpen}
+            setModalOpen={setModalOpen}
+            cards={cards}
+            setProject={setProject}
           />
-        )}
-      </AnimatePresence>
-    </WhiteSection>
-  );
+        </SplitSection>
+        <SplitSection>
+          <AnimatePresence
+            initial={false}
+            exitBeforeEnter={true}
+            onExitComplete={() => null}
+          >
+            {project && modalOpen ? (
+              <ProjectModal
+                project={project}
+                handleClose={() => setModalOpen(false)}
+              />
+            ) : (
+              <NoSelection>
+                <Magnifier />
+                <br />
+                <p>Select a project to view details!</p>
+              </NoSelection>
+            )}
+          </AnimatePresence>
+        </SplitSection>
+      </WhiteSection>
+    );
+  }
 };
 
 export default Projects;

@@ -14,7 +14,8 @@ import {
   Title,
   Details,
 } from '../styled/Text';
-import { ReactNode, useLayoutEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
+import useWindowSize from 'src/utils/hooks';
 
 interface IBackdropProps {
   children: ReactNode;
@@ -42,6 +43,27 @@ const popUp: Variants = {
   },
 };
 
+const popRight: Variants = {
+  hidden: {
+    x: '100vh',
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+  exit: {
+    x: '100vh',
+    opacity: 0,
+  },
+};
+
 const Backdrop = ({ children, onClick }: IBackdropProps) => {
   return (
     <motion.div
@@ -63,14 +85,17 @@ interface IProjectModalProps {
 
 export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const size = useWindowSize();
 
-  useLayoutEffect(() => {
-    const storedRequestAnimationFrame = window.requestAnimationFrame;
+  useEffect(() => {
+    if (size.width && size.width < 600) {
+      const storedRequestAnimationFrame = window.requestAnimationFrame;
 
-    window.requestAnimationFrame = () => 42;
-    if (modalRef.current) {
-      disableBodyScroll(modalRef.current);
-      window.requestAnimationFrame = storedRequestAnimationFrame;
+      window.requestAnimationFrame = () => 42;
+      if (modalRef.current) {
+        disableBodyScroll(modalRef.current);
+        window.requestAnimationFrame = storedRequestAnimationFrame;
+      }
     }
 
     return () => {
@@ -78,14 +103,76 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
     };
   }, []);
 
-  return (
-    <Backdrop onClick={handleClose}>
-      <Close className={styles.close} />
+  if (size.width && size.width < 600) {
+    return (
+      <Backdrop onClick={handleClose}>
+        <Close className={styles.close} />
+        <motion.div
+          ref={modalRef}
+          onClick={e => e.stopPropagation()}
+          className={styles.modal}
+          variants={popUp}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          {project && (
+            <>
+              <Header>
+                <Title grey>{project.title}</Title>
+                <Details>{project.details}</Details>
+              </Header>
+              <div className={styles.image}>
+                <Image
+                  src={`https:${project.screenshot.fields.file.url}`}
+                  width={192}
+                  height={108}
+                  priority={true}
+                  layout="responsive"
+                  style={{ borderRadius: '5px' }}
+                />
+              </div>
+              <ToolsContainer>
+                {project.tools.map((tool: string, index: number) => (
+                  <SmallBold key={index}>{tool}</SmallBold>
+                ))}
+              </ToolsContainer>
+              <ModalTitle>WHY</ModalTitle>
+              <ModalBody>{project.why}</ModalBody>
+              <ModalTitle>RESULT</ModalTitle>
+              <ModalBody>{project.result}</ModalBody>
+              <ModalLinks>
+                <TextLink
+                  href={project.gitHub}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.link}
+                >
+                  github repo
+                  <ChevronsRight className={styles.chevron} />
+                </TextLink>
+                <TextLink
+                  href={project.deployed}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.link}
+                >
+                  deployed app
+                  <ChevronsRight className={styles.chevron} />
+                </TextLink>
+              </ModalLinks>
+            </>
+          )}
+        </motion.div>
+      </Backdrop>
+    );
+  } else {
+    return (
       <motion.div
         ref={modalRef}
         onClick={e => e.stopPropagation()}
         className={styles.modal}
-        variants={popUp}
+        variants={popRight}
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -102,7 +189,8 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
                 width={192}
                 height={108}
                 priority={true}
-                layout="responsive"
+                layout="fill"
+                objectFit="cover"
                 style={{ borderRadius: '5px' }}
               />
             </div>
@@ -138,6 +226,6 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
           </>
         )}
       </motion.div>
-    </Backdrop>
-  );
+    );
+  }
 };

@@ -60,6 +60,10 @@ const ModalTitle = styled.p`
   color: #000000;
   text-align: left;
   width: 90vw;
+
+  @media screen and (min-width: 600px) {
+    width: 45vw;
+  }
 `;
 
 const ModalBody = styled.p`
@@ -71,6 +75,10 @@ const ModalBody = styled.p`
   color: #000000;
   text-align: left;
   margin-bottom: 2rem;
+
+  @media screen and (min-width: 600px) {
+    width: 45vw;
+  }
 `;
 
 const CardTitle = styled.p`

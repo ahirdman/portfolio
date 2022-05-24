@@ -57,10 +57,10 @@ const Hero = () => {
     size.width !== undefined && size.width >= 600 ? 'fill' : 'responsive';
 
   return (
-    <GreySection id="hero">
+    <GreySection id="hero" flex>
       <HeroImage>
         <Image
-          src={'/images/hero.jpg'}
+          src="/images/hero.jpg"
           alt="me"
           layout={layout}
           width={300}

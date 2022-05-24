@@ -1,7 +1,6 @@
 .backdrop {
   position: absolute;
   top: 100vh;
-  /* top: 0; */
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -45,4 +44,25 @@
 .link:hover {
   color: #9e9e9e;
   stroke: #9e9e9e;
+}
+
+@media screen and (min-width: 600px) {
+  .modal {
+    width: 50vw;
+    height: 100vh;
+    background-color: #f5f4f4;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image {
+    width: 20vw;
+    height: 20vh;
+    position: relative;
+  }
 }
