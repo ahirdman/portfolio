@@ -15,15 +15,6 @@ const SlidingColumn = styled(motion.div)`
   justify-content: space-between;
 `;
 
-const HeroColumn = styled(Column)`
-  position: relative;
-  bottom: 2rem;
-  margin-right: 5rem;
-  margin-left: 5rem;
-  height: 42vh;
-  justify-content: space-between;
-`;
-
 const Row = styled.div`
   display: flex;
   justify-content: center;
@@ -66,6 +57,9 @@ const WhiteSection = styled.div`
 
 const GreySection = styled(WhiteSection)`
   background-color: #3f3f3f;
+  @media screen and (min-width: 600px) {
+    display: flex;
+  }
 `;
 
 const NavContainer = styled.div`
@@ -135,7 +129,6 @@ const SectionMotion = styled(motion.section)`
 export {
   Column,
   SlidingColumn,
-  HeroColumn,
   Row,
   Centered,
   MainWrapper,

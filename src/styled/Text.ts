@@ -18,20 +18,6 @@ const Title = styled.p<ITitle>`
   color: ${props => (props.grey ? '#3f3f3f' : '#ffffff')};
 `;
 
-const HeroTitle = styled(Title)`
-  text-align: left;
-  padding-top: 0;
-  line-height: 2.5rem;
-`;
-
-const HeroBody = styled.p`
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 27px;
-  letter-spacing: 0.05em;
-  color: #ffffff;
-`;
-
 const Details = styled.p`
   font-weight: 700;
   font-size: 14px;
@@ -167,10 +153,6 @@ const Small = styled.small`
   color: #ababab;
 `;
 
-const Orange = styled.span`
-  color: #ff8a00;
-`;
-
 export {
   Header,
   Title,
@@ -182,13 +164,10 @@ export {
   CardTitle,
   CardDescription,
   NavLink,
-  HeroTitle,
-  HeroBody,
   SmallBold,
   TextLink,
   AccBody,
   AccTitle,
   AccHeader,
   Small,
-  Orange,
 };

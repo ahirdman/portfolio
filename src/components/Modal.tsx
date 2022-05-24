@@ -3,12 +3,7 @@ import styles from '../../styles/Projects.module.css';
 import { ChevronsRight, Close } from '../svg/index';
 import { motion, Variants } from 'framer-motion';
 import { IProjectDetails } from 'src/interface';
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
-} from 'body-scroll-lock';
-
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Image from 'next/image';
 import {
   ModalTitle,
@@ -19,7 +14,7 @@ import {
   Title,
   Details,
 } from '../styled/Text';
-import { ReactNode, useEffect, useLayoutEffect, useRef } from 'react';
+import { ReactNode, useLayoutEffect, useRef } from 'react';
 
 interface IBackdropProps {
   children: ReactNode;
