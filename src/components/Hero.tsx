@@ -1,9 +1,10 @@
-import { Column, GreySection } from 'src/styled/Containers';
+import { GreySection } from 'src/styled/Containers';
 import { Header, Title } from 'src/styled/Text';
 import styles from '../../styles/Hero.module.css';
 import styled from 'styled-components';
 import Image from 'next/image';
-import useWindowWidth from 'src/utils/hooks';
+import useWindowSize from 'src/utils/hooks';
+import { IWindow } from 'src/interface';
 
 const HeroTitle = styled(Title)`
   text-align: left;
@@ -48,7 +49,17 @@ const HeroImage = styled.div`
 `;
 
 const Hero = () => {
-  const { width } = useWindowWidth();
+  const size: IWindow = useWindowSize();
+
+  // const layout = () => {
+  //   if (size.width !== undefined && size.width > 600) {
+  //     return "fill"
+  //   }
+  //   return "responsive"
+  // }
+
+  const layout =
+    size.width !== undefined && size.width > 600 ? 'fill' : 'responsive';
 
   return (
     <GreySection id="hero">
@@ -56,7 +67,7 @@ const Hero = () => {
         <Image
           src={'/images/hero.jpg'}
           alt="me"
-          layout={width < 600 ? 'responsive' : 'fill'}
+          layout={layout}
           width={300}
           height={200}
           priority={true}

@@ -36,4 +36,9 @@ interface IProjectDetails {
   why: string;
 }
 
-export type { ICard, IExpCard, IProjectDetails };
+interface IWindow {
+  width: undefined | number;
+  height: undefined | number;
+}
+
+export type { ICard, IExpCard, IProjectDetails, IWindow };
