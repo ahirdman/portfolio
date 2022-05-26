@@ -27,7 +27,7 @@ export const NavContainer = styled.div`
  * Styled Text
  */
 
-export const NavLink = styled.p`
+export const NavLink = styled.a`
   font-weight: 700;
   font-size: 12px;
   color: white;

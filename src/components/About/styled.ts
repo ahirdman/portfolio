@@ -68,19 +68,19 @@ export const AccBody = styled.p`
   width: 200px;
 `;
 
-export const AccTitle = styled.p`
+export const AccHeader = styled.h1`
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+`;
+
+export const AccTitle = styled.h2`
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.05em;
   color: #ffffff;
   margin-bottom: 10px;
-`;
-
-export const AccHeader = styled.p`
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.05em;
-  color: #ffffff;
 `;

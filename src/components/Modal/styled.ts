@@ -24,7 +24,7 @@ export const ToolsContainer = styled.div`
  * Styled Text
  */
 
-export const ModalTitle = styled.p`
+export const ModalTitle = styled.h1`
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;

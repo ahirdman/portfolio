@@ -4,14 +4,14 @@ interface ISection {
   readonly flex?: boolean;
 }
 
-const MainWrapper = styled.div`
+const MainWrapper = styled.main`
   position: absolute;
   top: 0;
   left: 0;
   width: fit-content;
 `;
 
-const WhiteSection = styled.div`
+const WhiteSection = styled.section`
   width: 100vw;
   height: 100vh;
   background-color: white;

@@ -31,14 +31,14 @@ export const CardContainer = styled.div`
  * Styled Text
  */
 
-export const CardTitle = styled.p`
+export const CardTitle = styled.h1`
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
   color: #000000;
 `;
 
-export const CardDescription = styled.p`
+export const CardDescription = styled.h2`
   font-weight: 300;
   font-size: 12px;
   line-height: 18px;
