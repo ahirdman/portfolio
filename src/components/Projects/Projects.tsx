@@ -38,6 +38,7 @@ const ProjectCard = ({
         <Styled.CardDescription>{card.type}</Styled.CardDescription>
         <Image
           src={`https:${card.image}`}
+          alt="project screenshot"
           width={200}
           height={200}
           style={{ borderRadius: '5px' }}

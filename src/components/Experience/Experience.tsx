@@ -39,7 +39,7 @@ const Experience = () => {
         <Svg.LineArrow className={styles.arrow} />
         <div className={styles.cardContainer}>
           {content.map((card: IExpCard, index: number) => (
-            <div className={styles.card} key={index}>
+            <div key={index}>
               <h1 className={styles.title}>{card.title}</h1>
               <h2 className={styles.header}>{card.header}</h2>
               <p className={styles.body}>{card.body}</p>
