@@ -1,26 +1,24 @@
-import { NavContainer } from '../styled/Containers';
-import { NavLink } from 'src/styled/Text';
 import { Link } from 'react-scroll';
-import { Nav } from 'src/styled/Elements';
+import * as Styled from './styled';
 
 const Navbar = () => {
   return (
-    <NavContainer>
-      <Nav>
+    <Styled.NavContainer>
+      <Styled.Nav>
         <Link to="hero" smooth={true} spy={true}>
-          <NavLink>Home</NavLink>
+          <Styled.NavLink>Home</Styled.NavLink>
         </Link>
         <Link to="projects" smooth={true} spy={true}>
-          <NavLink>Projects</NavLink>
+          <Styled.NavLink>Projects</Styled.NavLink>
         </Link>
         <Link to="about" smooth={true} spy={true}>
-          <NavLink>About</NavLink>
+          <Styled.NavLink>About</Styled.NavLink>
         </Link>
         <Link to="experience" smooth={true} spy={true}>
-          <NavLink>Experience</NavLink>
+          <Styled.NavLink>Experience</Styled.NavLink>
         </Link>
-      </Nav>
-    </NavContainer>
+      </Styled.Nav>
+    </Styled.NavContainer>
   );
 };
 

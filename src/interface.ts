@@ -41,4 +41,10 @@ interface IWindow {
   height: undefined | number;
 }
 
-export type { ICard, IExpCard, IProjectDetails, IWindow };
+interface ISVGProps {
+  fill?: string;
+  stroke?: string;
+  className?: string;
+}
+
+export type { ICard, IExpCard, IProjectDetails, IWindow, ISVGProps };

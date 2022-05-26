@@ -1,9 +1,9 @@
-import { WhiteSection } from '../styled/Containers';
-import { Header, Title, Details, Small } from '../styled/Text';
-import { Github, LineArrow, LinkedIn, Mail } from '../svg';
-import styles from '../../styles/Experience.module.css';
-import { Footer } from 'src/styled/Elements';
+import styles from '../../../styles/Experience.module.scss';
+import { Header, Title, Details } from '../../styled/Text';
+import { WhiteSection } from '../../styled/Containers';
 import { IExpCard } from 'src/interface';
+import * as Svg from './svg';
+import * as Styled from './styled';
 
 const content = [
   {
@@ -36,7 +36,7 @@ const Experience = () => {
         <Details>Some of my experience</Details>
       </Header>
       <div className={styles.container}>
-        <LineArrow className={styles.arrow} />
+        <Svg.LineArrow className={styles.arrow} />
         <div className={styles.cardContainer}>
           {content.map((card: IExpCard, index: number) => (
             <div className={styles.card} key={index}>
@@ -50,7 +50,7 @@ const Experience = () => {
       </div>
       <div className={styles.links}>
         <a href="mailto: hirdman.alex@icloud.com" className={styles.svg}>
-          <Mail />
+          <Svg.Mail />
         </a>
         <a
           href="https://www.linkedin.com/in/hirdman/"
@@ -58,7 +58,7 @@ const Experience = () => {
           rel="noreferrer"
           className={styles.svg}
         >
-          <LinkedIn fill="#3f3f3f" />
+          <Svg.LinkedIn fill="#3f3f3f" />
         </a>
         <a
           href="https://github.com/ahirdman"
@@ -66,12 +66,14 @@ const Experience = () => {
           rel="noreferrer"
           className={styles.svg}
         >
-          <Github fill="#3f3f3f" />
+          <Svg.Github fill="#3f3f3f" />
         </a>
       </div>
-      <Footer>
-        <Small>&copy; Copyright {currentYear}, Alexander Hirdman</Small>
-      </Footer>
+      <Styled.Footer>
+        <Styled.Small>
+          &copy; Copyright {currentYear}, Alexander Hirdman
+        </Styled.Small>
+      </Styled.Footer>
     </WhiteSection>
   );
 };

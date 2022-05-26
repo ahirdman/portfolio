@@ -1,68 +1,19 @@
-import { ModalLinks, ToolsContainer } from 'src/styled/Containers';
-import styles from '../../styles/Projects.module.css';
-import { ChevronsRight, Close } from '../svg/index';
-import { motion, Variants } from 'framer-motion';
+import styles from '../../../styles/Modal.module.scss';
+import { motion } from 'framer-motion';
 import { IProjectDetails } from 'src/interface';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Image from 'next/image';
-import {
-  ModalTitle,
-  ModalBody,
-  SmallBold,
-  TextLink,
-  Header,
-  Title,
-  Details,
-} from '../styled/Text';
+import { Header, Title, Details } from '../../styled/Text';
 import { ReactNode, useEffect, useRef } from 'react';
 import useWindowSize from 'src/utils/hooks';
+import * as Variants from './motionVariants';
+import * as Styled from './styled';
+import * as Svg from './svg';
 
 interface IBackdropProps {
   children: ReactNode;
   onClick: any;
 }
-
-const popUp: Variants = {
-  hidden: {
-    y: '100vh',
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.1,
-      type: 'spring',
-      damping: 25,
-      stiffness: 500,
-    },
-  },
-  exit: {
-    y: '100vh',
-    opacity: 0,
-  },
-};
-
-const popRight: Variants = {
-  hidden: {
-    x: '100vh',
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.1,
-      type: 'spring',
-      damping: 25,
-      stiffness: 500,
-    },
-  },
-  exit: {
-    x: '100vh',
-    opacity: 0,
-  },
-};
 
 const Backdrop = ({ children, onClick }: IBackdropProps) => {
   return (
@@ -106,12 +57,12 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   if (size.width && size.width < 600) {
     return (
       <Backdrop onClick={handleClose}>
-        <Close className={styles.close} />
+        <Svg.Close className={styles.close} />
         <motion.div
           ref={modalRef}
           onClick={e => e.stopPropagation()}
           className={styles.modal}
-          variants={popUp}
+          variants={Variants.popUp}
           initial="hidden"
           animate="visible"
           exit="exit"
@@ -132,35 +83,35 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
                   style={{ borderRadius: '5px' }}
                 />
               </div>
-              <ToolsContainer>
+              <Styled.ToolsContainer>
                 {project.tools.map((tool: string, index: number) => (
-                  <SmallBold key={index}>{tool}</SmallBold>
+                  <Styled.SmallBold key={index}>{tool}</Styled.SmallBold>
                 ))}
-              </ToolsContainer>
-              <ModalTitle>WHY</ModalTitle>
-              <ModalBody>{project.why}</ModalBody>
-              <ModalTitle>RESULT</ModalTitle>
-              <ModalBody>{project.result}</ModalBody>
-              <ModalLinks>
-                <TextLink
+              </Styled.ToolsContainer>
+              <Styled.ModalTitle>WHY</Styled.ModalTitle>
+              <Styled.ModalBody>{project.why}</Styled.ModalBody>
+              <Styled.ModalTitle>RESULT</Styled.ModalTitle>
+              <Styled.ModalBody>{project.result}</Styled.ModalBody>
+              <Styled.ModalLinks>
+                <Styled.TextLink
                   href={project.gitHub}
                   target="_blank"
                   rel="noreferrer"
                   className={styles.link}
                 >
                   github repo
-                  <ChevronsRight className={styles.chevron} />
-                </TextLink>
-                <TextLink
+                  <Svg.ChevronsRight className={styles.chevron} />
+                </Styled.TextLink>
+                <Styled.TextLink
                   href={project.deployed}
                   target="_blank"
                   rel="noreferrer"
                   className={styles.link}
                 >
                   deployed app
-                  <ChevronsRight className={styles.chevron} />
-                </TextLink>
-              </ModalLinks>
+                  <Svg.ChevronsRight className={styles.chevron} />
+                </Styled.TextLink>
+              </Styled.ModalLinks>
             </>
           )}
         </motion.div>
@@ -172,7 +123,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
         ref={modalRef}
         onClick={e => e.stopPropagation()}
         className={styles.modal}
-        variants={popRight}
+        variants={Variants.popRight}
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -194,35 +145,35 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
                 style={{ borderRadius: '5px' }}
               />
             </div>
-            <ToolsContainer>
+            <Styled.ToolsContainer>
               {project.tools.map((tool: string, index: number) => (
-                <SmallBold key={index}>{tool}</SmallBold>
+                <Styled.SmallBold key={index}>{tool}</Styled.SmallBold>
               ))}
-            </ToolsContainer>
-            <ModalTitle>WHY</ModalTitle>
-            <ModalBody>{project.why}</ModalBody>
-            <ModalTitle>RESULT</ModalTitle>
-            <ModalBody>{project.result}</ModalBody>
-            <ModalLinks>
-              <TextLink
+            </Styled.ToolsContainer>
+            <Styled.ModalTitle>WHY</Styled.ModalTitle>
+            <Styled.ModalBody>{project.why}</Styled.ModalBody>
+            <Styled.ModalTitle>RESULT</Styled.ModalTitle>
+            <Styled.ModalBody>{project.result}</Styled.ModalBody>
+            <Styled.ModalLinks>
+              <Styled.TextLink
                 href={project.gitHub}
                 target="_blank"
                 rel="noreferrer"
                 className={styles.link}
               >
                 github repo
-                <ChevronsRight className={styles.chevron} />
-              </TextLink>
-              <TextLink
+                <Svg.ChevronsRight className={styles.chevron} />
+              </Styled.TextLink>
+              <Styled.TextLink
                 href={project.deployed}
                 target="_blank"
                 rel="noreferrer"
                 className={styles.link}
               >
                 deployed app
-                <ChevronsRight className={styles.chevron} />
-              </TextLink>
-            </ModalLinks>
+                <Svg.ChevronsRight className={styles.chevron} />
+              </Styled.TextLink>
+            </Styled.ModalLinks>
           </>
         )}
       </motion.div>

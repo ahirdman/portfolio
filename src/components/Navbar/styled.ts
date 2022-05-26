@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const Nav = styled.nav`
+/**
+ * Styled Containers
+ */
+
+export const Nav = styled.nav`
   position: fixed;
   top: 90%;
   display: flex;
@@ -14,11 +18,22 @@ const Nav = styled.nav`
   z-index: 1;
 `;
 
-const Footer = styled.footer`
+export const NavContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 `;
 
-export { Nav, Footer };
+/**
+ * Styled Text
+ */
+
+export const NavLink = styled.p`
+  font-weight: 700;
+  font-size: 12px;
+  color: white;
+  line-height: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;

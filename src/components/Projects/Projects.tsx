@@ -1,35 +1,17 @@
-import { CardContainer, WhiteSection } from 'src/styled/Containers';
-import { CardDescription, CardTitle } from 'src/styled/Text';
+import { WhiteSection } from 'src/styled/Containers';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
-import { Header, Title, Details } from '../styled/Text';
+import { Header, Title, Details } from '../../styled/Text';
 import { AnimatePresence } from 'framer-motion';
-import { ProjectModal } from './Modal';
+import { ProjectModal } from '../Modal/Modal';
 import { ICard, IWindow } from 'src/interface';
-import { nestArray } from '../utils';
+import { nestArray } from '../../utils';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Link } from 'react-scroll';
 import useWindowSize from 'src/utils/hooks';
-import styled from 'styled-components';
-import { Magnifier } from 'src/svg';
-
-const SplitSection = styled.main`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 50vw;
-`;
-
-const NoSelection = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: #f5f4f4;
-`;
+import * as Svg from './svg';
+import * as Styled from './styled';
 
 interface IProjectCardProps {
   modalOpen: boolean;
@@ -46,21 +28,21 @@ const ProjectCard = ({
 }: IProjectCardProps) => {
   return (
     <Link to="projects" smooth={false} spy={true}>
-      <CardContainer
+      <Styled.CardContainer
         onClick={() => {
           setProject(card.ref);
           modalOpen ? setModalOpen(false) : setModalOpen(true);
         }}
       >
-        <CardTitle>{card.title}</CardTitle>
-        <CardDescription>{card.type}</CardDescription>
+        <Styled.CardTitle>{card.title}</Styled.CardTitle>
+        <Styled.CardDescription>{card.type}</Styled.CardDescription>
         <Image
           src={`https:${card.image}`}
           width={200}
           height={200}
           style={{ borderRadius: '5px' }}
         />
-      </CardContainer>
+      </Styled.CardContainer>
     </Link>
   );
 };
@@ -153,7 +135,7 @@ const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
   } else {
     return (
       <WhiteSection id="projects" style={{ display: 'flex' }}>
-        <SplitSection>
+        <Styled.SplitSection>
           <Header>
             <Title grey>PROJECTS</Title>
             <Details>Some of my work</Details>
@@ -164,8 +146,8 @@ const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
             cards={cards}
             setProject={setProject}
           />
-        </SplitSection>
-        <SplitSection>
+        </Styled.SplitSection>
+        <Styled.SplitSection>
           <AnimatePresence
             initial={false}
             exitBeforeEnter={true}
@@ -177,14 +159,14 @@ const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
                 handleClose={() => setModalOpen(false)}
               />
             ) : (
-              <NoSelection>
-                <Magnifier />
+              <Styled.NoSelection>
+                <Svg.Magnifier />
                 <br />
                 <p>Select a project to view details!</p>
-              </NoSelection>
+              </Styled.NoSelection>
             )}
           </AnimatePresence>
-        </SplitSection>
+        </Styled.SplitSection>
       </WhiteSection>
     );
   }
