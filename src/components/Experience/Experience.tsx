@@ -1,30 +1,10 @@
 import styles from '../../../styles/Experience.module.scss';
 import { Header, Title, Details } from '../../styled/Text';
+import { experienceContent } from 'src/contentful/local';
 import { WhiteSection } from '../../styled/Containers';
 import { IExpCard } from 'src/interface';
 import * as Svg from './svg';
 import * as Styled from './styled';
-
-const content = [
-  {
-    title: 'SANTA MONICA COLLEGE',
-    header: 'Design, Film Iconography',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
-    location: 'Los Angeles, USA - 2010',
-  },
-  {
-    title: 'CAP',
-    header: 'Agile Project Manager',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
-    location: 'Stockholm, Sweden - 2012',
-  },
-  {
-    title: '</SALT>',
-    header: 'Full Stack JavaScript Developer',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate id euismod dignissim mauris. Ornare ullamcorper sed.',
-    location: 'Stockholm, Sweden - 2022',
-  },
-];
 
 const Experience = () => {
   const date = new Date();
@@ -38,7 +18,7 @@ const Experience = () => {
       <div className={styles.container}>
         <Svg.LineArrow className={styles.arrow} />
         <div className={styles.cardContainer}>
-          {content.map((card: IExpCard, index: number) => (
+          {experienceContent.map((card: IExpCard, index: number) => (
             <div key={index}>
               <h1 className={styles.title}>{card.title}</h1>
               <h2 className={styles.header}>{card.header}</h2>
