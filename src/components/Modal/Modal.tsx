@@ -76,6 +76,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
               <div className={styles.image}>
                 <Image
                   src={`https:${project.screenshot.fields.file.url}`}
+                  alt="project screenshot"
                   width={192}
                   height={108}
                   priority={true}
@@ -137,6 +138,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
             <div className={styles.image}>
               <Image
                 src={`https:${project.screenshot.fields.file.url}`}
+                alt="project screenshot"
                 width={192}
                 height={108}
                 priority={true}
