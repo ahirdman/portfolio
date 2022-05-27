@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ISection {
   readonly flex?: boolean;
+  readonly centered?: boolean;
 }
 
 const MainWrapper = styled.main`
@@ -18,6 +19,9 @@ const WhiteSection = styled.section<ISection>`
 
   @media screen and (min-width: 600px) {
     display: ${props => (props.flex ? 'flex' : '')};
+    flex-direction: ${props => (props.centered ? 'column' : '')};
+    justify-content: ${props => (props.centered ? 'center' : '')};
+    align-items: ${props => (props.centered ? 'center' : '')};
   }
 `;
 
@@ -26,6 +30,9 @@ const GreySection = styled(WhiteSection)`
 
   @media screen and (min-width: 600px) {
     display: ${props => (props.flex ? 'flex' : '')};
+    flex-direction: ${props => (props.centered ? 'column' : '')};
+    justify-content: ${props => (props.centered ? 'center' : '')};
+    align-items: ${props => (props.centered ? 'center' : '')};
   }
 `;
 
