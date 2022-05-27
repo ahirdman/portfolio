@@ -9,11 +9,11 @@ export const AccordionContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   transform-origin: top center;
-  padding-left: 1rem;
 `;
 
 export const AccordionRow = styled.div`
   display: flex;
+  justify-content: center;
   height: 80px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -24,7 +24,11 @@ export const AccordionSvg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 6rem;
+  width: 6em;
+
+  @media screen and (min-width: 1000px) {
+    width: 5em;
+  }
 `;
 
 export const HeaderMotion = styled(motion.header)`
@@ -44,15 +48,23 @@ export const SectionMotion = styled(motion.section)`
   overflow: hidden;
 `;
 
-export const CenteredMotion = styled(motion.div)`
+export const CaretMotion = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const Container = styled.main`
-  padding-right: 1rem;
-  padding-left: 1rem;
+export const Container = styled.section`
+  width: clamp(50%, 500px, 90%);
+`;
+
+export const MainContainer = styled.main`
+  padding-right: 5vw;
+  padding-left: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 /**
@@ -65,7 +77,9 @@ export const AccBody = styled.p`
   line-height: 18px;
   letter-spacing: 0.05em;
   color: #ffffff;
-  width: 200px;
+  @media screen and (max-width: 600px) {
+    width: 200px;
+  }
 `;
 
 export const AccHeader = styled.h1`
