@@ -9,22 +9,30 @@ import * as Styled from './styled';
 const Hero = () => {
   const size: IWindow = useWindowSize();
 
-  const layout =
-    size.width !== undefined && size.width >= 600 ? 'fill' : 'responsive';
-
   return (
     <GreySection id="hero" flex>
       <Styled.HeroImage>
-        <Image
-          src="/images/hero.jpg"
-          alt="me"
-          layout={layout}
-          width={300}
-          height={200}
-          priority={true}
-          objectFit="cover"
-          className={styles.hero}
-        />
+        {size.width && size.width < 600 && (
+          <Image
+            src="/images/hero.jpg"
+            alt="me"
+            layout="responsive"
+            width={300}
+            height={200}
+            priority={true}
+            className={styles.hero}
+          />
+        )}
+        {size.width && size.width >= 600 && (
+          <Image
+            src="/images/hero.jpg"
+            alt="me"
+            layout="fill"
+            priority={true}
+            objectFit="cover"
+            className={styles.hero}
+          />
+        )}
       </Styled.HeroImage>
       <Styled.HeroColumn>
         <Header>

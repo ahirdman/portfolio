@@ -10,7 +10,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Link } from 'react-scroll';
 import useWindowSize from 'src/utils/hooks';
-import * as Svg from './svg';
 import * as Styled from './styled';
 
 interface IProjectCardProps {
@@ -65,34 +64,37 @@ const Carousel = ({
   const size: IWindow = useWindowSize();
 
   return (
-    <CarouselProvider
-      naturalSlideWidth={100}
-      naturalSlideHeight={size.width && size.width < 600 ? 145 : 200}
-      totalSlides={nestedCards.length}
-      visibleSlides={size.width && size.width < 600 ? 1 : 2}
-      lockOnWindowScroll={true}
-    >
-      {size.width && size.width < 600 && (
-        <DotGroup showAsSelectedForCurrentSlideOnly={true} />
-      )}
-      <Slider>
-        {nestedCards.map((nested: any, index: number) => (
-          <Slide index={index} key={index}>
-            {nested.map((card: ICard, index: number) => {
-              return (
-                <ProjectCard
-                  key={index}
-                  modalOpen={modalOpen}
-                  setModalOpen={setModalOpen}
-                  card={card}
-                  setProject={setProject}
-                />
-              );
-            })}
-          </Slide>
-        ))}
-      </Slider>
-    </CarouselProvider>
+    <Styled.Container>
+      <CarouselProvider
+        naturalSlideWidth={100}
+        naturalSlideHeight={size.width && size.width < 600 ? 145 : 100}
+        totalSlides={nestedCards.length}
+        visibleSlides={size.width && size.width < 600 ? 1 : 2}
+        lockOnWindowScroll={true}
+        isIntrinsicHeight={true}
+      >
+        {size.width && size.width < 600 && (
+          <DotGroup showAsSelectedForCurrentSlideOnly={true} />
+        )}
+        <Slider>
+          {nestedCards.map((nested: any, index: number) => (
+            <Slide index={index} key={index}>
+              {nested.map((card: ICard, index: number) => {
+                return (
+                  <ProjectCard
+                    key={index}
+                    modalOpen={modalOpen}
+                    setModalOpen={setModalOpen}
+                    card={card}
+                    setProject={setProject}
+                  />
+                );
+              })}
+            </Slide>
+          ))}
+        </Slider>
+      </CarouselProvider>
+    </Styled.Container>
   );
 };
 
@@ -104,73 +106,33 @@ interface IProjectProps {
 
 const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
   const [project, setProject] = useState();
-  const size: IWindow = useWindowSize();
 
-  if (size.width && size.width < 600) {
-    return (
-      <WhiteSection id="projects">
-        <Header>
-          <Title grey>PROJECTS</Title>
-          <Details>Some of my work</Details>
-        </Header>
-        <Carousel
-          modalOpen={modalOpen}
-          setModalOpen={setModalOpen}
-          cards={cards}
-          setProject={setProject}
-        />
-        <AnimatePresence
-          initial={false}
-          exitBeforeEnter={true}
-          onExitComplete={() => null}
-        >
-          {project && modalOpen && (
-            <ProjectModal
-              project={project}
-              handleClose={() => setModalOpen(false)}
-            />
-          )}
-        </AnimatePresence>
-      </WhiteSection>
-    );
-  } else {
-    return (
-      <WhiteSection id="projects" style={{ display: 'flex' }}>
-        <Styled.SplitSection>
-          <Header>
-            <Title grey>PROJECTS</Title>
-            <Details>Some of my work</Details>
-          </Header>
-          <Carousel
-            modalOpen={modalOpen}
-            setModalOpen={setModalOpen}
-            cards={cards}
-            setProject={setProject}
+  return (
+    <WhiteSection id="projects">
+      <Header>
+        <Title grey>PROJECTS</Title>
+        <Details>Some of my work</Details>
+      </Header>
+      <Carousel
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        cards={cards}
+        setProject={setProject}
+      />
+      <AnimatePresence
+        initial={false}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {project && modalOpen && (
+          <ProjectModal
+            project={project}
+            handleClose={() => setModalOpen(false)}
           />
-        </Styled.SplitSection>
-        <Styled.SplitSection>
-          <AnimatePresence
-            initial={false}
-            exitBeforeEnter={true}
-            onExitComplete={() => null}
-          >
-            {project && modalOpen ? (
-              <ProjectModal
-                project={project}
-                handleClose={() => setModalOpen(false)}
-              />
-            ) : (
-              <Styled.NoSelection>
-                <Svg.Magnifier />
-                <br />
-                <p>Select a project to view details!</p>
-              </Styled.NoSelection>
-            )}
-          </AnimatePresence>
-        </Styled.SplitSection>
-      </WhiteSection>
-    );
-  }
+        )}
+      </AnimatePresence>
+    </WhiteSection>
+  );
 };
 
 export default Projects;

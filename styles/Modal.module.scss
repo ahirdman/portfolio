@@ -1,41 +1,3 @@
-.backdrop {
-  position: absolute;
-  top: 100vh;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000000e1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.close {
-  margin-top: 1.5vh;
-  margin-right: 1.5vh;
-  z-index: 1;
-}
-
-.modal {
-  width: 100%;
-  height: 95vh;
-  background-color: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  padding-right: 5vw;
-  padding-left: 5vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.image {
-  width: 90vw;
-  height: auto;
-  margin-top: 0.5rem;
-}
-
 .link:hover .chevron,
 .link:hover {
   color: #9e9e9e;
@@ -44,25 +6,4 @@
 
 .close:hover {
   stroke: white;
-}
-
-@media screen and (min-width: 600px) {
-  .modal {
-    width: 50vw;
-    height: 100vh;
-    background-color: #f5f4f4;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    padding-right: 5vw;
-    padding-left: 5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image {
-    width: 20vw;
-    height: 20vh;
-    position: relative;
-  }
 }

@@ -22,6 +22,10 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: 600px) {
+      padding: 20px;
+    }
   }
 
   &__dot-group {
@@ -42,6 +46,10 @@ a {
     background-color: black;
   }
 }
+
+// .slideInner___2mfX9 {
+//   width: 25%;
+// }
 
 .active {
   border-bottom: 2px solid white;

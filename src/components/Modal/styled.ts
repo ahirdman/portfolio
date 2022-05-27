@@ -1,8 +1,27 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 /**
  * Styled Containers
  */
+
+export const Backdrop = styled(motion.div)`
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000e1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  @media screen and (min-width: 600px) {
+    align-items: center;
+    justify-content: center;
+  }
+`;
 
 export const ModalLinks = styled.div`
   display: flex;
@@ -18,6 +37,56 @@ export const ToolsContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   height: 4rem;
+`;
+
+export const Modal = styled(motion.article)`
+  width: 100vw;
+  height: 95vh;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 600px) {
+    width: 60vw;
+    height: 80vh;
+    border-radius: 20px;
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+`;
+
+export const CloseButton = styled.div`
+  margin-top: 1.5vh;
+  margin-right: 1.5vh;
+  z-index: 1;
+
+  &:hover {
+    stroke: white;
+  }
+
+  @media screen and (min-width: 600px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  width: 90vw;
+  height: auto;
+  margin-top: 0.5rem;
+
+  @media screen and (min-width: 600px) {
+    width: 20vw;
+    height: 20vh;
+    position: relative;
+  }
 `;
 
 /**

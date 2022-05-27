@@ -11,20 +11,14 @@ export const SplitSection = styled.main`
   width: 50vw;
 `;
 
-export const NoSelection = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  background-color: #f5f4f4;
+export const CardContainer = styled.div`
+  letter-spacing: 0.03em;
 `;
 
-export const CardContainer = styled.div`
-  /* margin-bottom: 1rem; */
-  /* margin-left: 25%; */
-  letter-spacing: 0.03em;
+export const Container = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 /**

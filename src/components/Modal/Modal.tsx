@@ -1,5 +1,4 @@
 import styles from '../../../styles/Modal.module.scss';
-import { motion } from 'framer-motion';
 import { IProjectDetails } from 'src/interface';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Image from 'next/image';
@@ -17,15 +16,14 @@ interface IBackdropProps {
 
 const Backdrop = ({ children, onClick }: IBackdropProps) => {
   return (
-    <motion.div
-      className={styles.backdrop}
+    <Styled.Backdrop
       onClick={onClick}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       {children}
-    </motion.div>
+    </Styled.Backdrop>
   );
 };
 
@@ -54,77 +52,15 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
     };
   }, []);
 
-  if (size.width && size.width < 600) {
-    return (
-      <Backdrop onClick={handleClose}>
+  return (
+    <Backdrop onClick={handleClose}>
+      <Styled.CloseButton>
         <Svg.Close className={styles.close} />
-        <motion.div
-          ref={modalRef}
-          onClick={e => e.stopPropagation()}
-          className={styles.modal}
-          variants={Variants.popUp}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          {project && (
-            <>
-              <Header>
-                <Title grey>{project.title}</Title>
-                <Details>{project.details}</Details>
-              </Header>
-              <div className={styles.image}>
-                <Image
-                  src={`https:${project.screenshot.fields.file.url}`}
-                  alt="project screenshot"
-                  width={192}
-                  height={108}
-                  priority={true}
-                  layout="responsive"
-                  style={{ borderRadius: '5px' }}
-                />
-              </div>
-              <Styled.ToolsContainer>
-                {project.tools.map((tool: string, index: number) => (
-                  <Styled.SmallBold key={index}>{tool}</Styled.SmallBold>
-                ))}
-              </Styled.ToolsContainer>
-              <Styled.ModalTitle>WHY</Styled.ModalTitle>
-              <Styled.ModalBody>{project.why}</Styled.ModalBody>
-              <Styled.ModalTitle>RESULT</Styled.ModalTitle>
-              <Styled.ModalBody>{project.result}</Styled.ModalBody>
-              <Styled.ModalLinks>
-                <Styled.TextLink
-                  href={project.gitHub}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.link}
-                >
-                  github repo
-                  <Svg.ChevronsRight className={styles.chevron} />
-                </Styled.TextLink>
-                <Styled.TextLink
-                  href={project.deployed}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.link}
-                >
-                  deployed app
-                  <Svg.ChevronsRight className={styles.chevron} />
-                </Styled.TextLink>
-              </Styled.ModalLinks>
-            </>
-          )}
-        </motion.div>
-      </Backdrop>
-    );
-  } else {
-    return (
-      <motion.div
+      </Styled.CloseButton>
+      <Styled.Modal
         ref={modalRef}
         onClick={e => e.stopPropagation()}
-        className={styles.modal}
-        variants={Variants.popRight}
+        variants={Variants.popUp}
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -135,18 +71,17 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
               <Title grey>{project.title}</Title>
               <Details>{project.details}</Details>
             </Header>
-            <div className={styles.image}>
+            <Styled.ImageContainer>
               <Image
                 src={`https:${project.screenshot.fields.file.url}`}
                 alt="project screenshot"
                 width={192}
                 height={108}
                 priority={true}
-                layout="fill"
-                objectFit="cover"
+                layout="responsive"
                 style={{ borderRadius: '5px' }}
               />
-            </div>
+            </Styled.ImageContainer>
             <Styled.ToolsContainer>
               {project.tools.map((tool: string, index: number) => (
                 <Styled.SmallBold key={index}>{tool}</Styled.SmallBold>
@@ -178,7 +113,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
             </Styled.ModalLinks>
           </>
         )}
-      </motion.div>
-    );
-  }
+      </Styled.Modal>
+    </Backdrop>
+  );
 };
