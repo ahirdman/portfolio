@@ -28,6 +28,8 @@ const ProjectCard = ({
   return (
     <Link to="projects" smooth={false} spy={true}>
       <Styled.CardContainer
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => {
           setProject(card.ref);
           modalOpen ? setModalOpen(false) : setModalOpen(true);

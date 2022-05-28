@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 /**
@@ -11,8 +12,13 @@ export const SplitSection = styled.main`
   width: 50vw;
 `;
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(motion.div)`
   letter-spacing: 0.03em;
+  cursor: pointer;
+
+  @media screen and (min-width: 600px) {
+    margin: 20px 40px;
+  }
 `;
 
 export const Container = styled.main`

@@ -9,6 +9,7 @@ import * as experience from './styled';
 const Experience = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
+
   return (
     <WhiteSection id="experience" flex centered>
       <Header>
@@ -28,27 +29,27 @@ const Experience = () => {
           ))}
         </experience.Card>
       </experience.Container>
-      <div className={styles.links}>
-        <a href="mailto: hirdman.alex@icloud.com" className={styles.svg}>
+      <experience.Links>
+        <experience.SvgLink as="a" href="mailto: hirdman.alex@icloud.com">
           <svg.Mail />
-        </a>
-        <a
+        </experience.SvgLink>
+        <experience.SvgLink
+          as="a"
           href="https://www.linkedin.com/in/hirdman/"
           target="_blank"
           rel="noreferrer"
-          className={styles.svg}
         >
           <svg.LinkedIn fill="#3f3f3f" />
-        </a>
-        <a
+        </experience.SvgLink>
+        <experience.SvgLink
+          as="a"
           href="https://github.com/ahirdman"
           target="_blank"
           rel="noreferrer"
-          className={styles.svg}
         >
           <svg.Github fill="#3f3f3f" />
-        </a>
-      </div>
+        </experience.SvgLink>
+      </experience.Links>
       <experience.Footer>
         <experience.Small>
           &copy; Copyright {currentYear}, Alexander Hirdman

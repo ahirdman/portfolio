@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 /**
  * Styled Containers
  */
 
-export const Nav = styled.nav`
+export const Nav = styled(motion.nav)`
   position: fixed;
   top: 90%;
   display: flex;

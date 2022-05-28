@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 /**
@@ -27,6 +28,19 @@ export const Footer = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+`;
+
+export const Links = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const SvgLink = styled(motion.div)`
+  margin: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 /**
