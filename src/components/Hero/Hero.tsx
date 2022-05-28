@@ -1,6 +1,6 @@
 import { GreySection } from 'src/styled/Containers';
 import { IWindow } from 'src/interface';
-import { Header } from 'src/styled/Text';
+import { Header } from 'src/components/Header/styled';
 import useWindowSize from 'src/utils/hooks';
 import styles from '../../../styles/Hero.module.scss';
 import Image from 'next/image';

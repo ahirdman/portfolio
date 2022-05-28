@@ -1,7 +1,6 @@
 import { WhiteSection } from 'src/styled/Containers';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
-import { Header, Title, Details } from '../../styled/Text';
 import { AnimatePresence } from 'framer-motion';
 import { ProjectModal } from '../Modal/Modal';
 import { ICard, IWindow } from 'src/interface';
@@ -11,6 +10,7 @@ import Image from 'next/image';
 import { Link } from 'react-scroll';
 import useWindowSize from 'src/utils/hooks';
 import * as Styled from './styled';
+import Header from '../Header/Header';
 
 interface IProjectCardProps {
   modalOpen: boolean;
@@ -111,10 +111,7 @@ const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
 
   return (
     <WhiteSection id="projects">
-      <Header>
-        <Title grey>PROJECTS</Title>
-        <Details>Some of my work</Details>
-      </Header>
+      <Header title="PROJECTS" grey={true} />
       <Carousel
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}

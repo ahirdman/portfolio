@@ -1,10 +1,8 @@
-import styles from '../../../styles/Experience.module.scss';
-import { Header, Title, Details } from '../../styled/Text';
 import { experienceContent } from 'src/contentful/local';
 import { WhiteSection } from '../../styled/Containers';
 import { IExpCard } from 'src/interface';
-import * as svg from './svg';
-import * as experience from './styled';
+import * as s from './styled';
+import Header from '../Header/Header';
 
 const Experience = () => {
   const date = new Date();
@@ -12,49 +10,44 @@ const Experience = () => {
 
   return (
     <WhiteSection id="experience" flex centered>
-      <Header>
-        <Title grey>Experience</Title>
-        <Details>Some of my experience</Details>
-      </Header>
-      <experience.Container>
-        <svg.LineArrow className={styles.arrow} />
-        <experience.Card>
+      <Header title="EXPERIENCE" grey={true} />
+      <s.Container>
+        <s.StyledLineArrow width="50px" color="black" />
+        <s.Card>
           {experienceContent.map((card: IExpCard, index: number) => (
-            <div key={index}>
-              <h1 className={styles.title}>{card.title}</h1>
-              <h2 className={styles.header}>{card.header}</h2>
-              <p className={styles.body}>{card.body}</p>
-              <p className={styles.location}>{card.location}</p>
-            </div>
+            <article key={index}>
+              <s.Title>{card.title}</s.Title>
+              <s.Header>{card.header}</s.Header>
+              <s.Body>{card.body}</s.Body>
+              <s.Details>{card.location}</s.Details>
+            </article>
           ))}
-        </experience.Card>
-      </experience.Container>
-      <experience.Links>
-        <experience.SvgLink as="a" href="mailto: hirdman.alex@icloud.com">
-          <svg.Mail />
-        </experience.SvgLink>
-        <experience.SvgLink
+        </s.Card>
+      </s.Container>
+      <s.Links>
+        <s.SvgLink as="a" href="mailto: hirdman.alex@icloud.com">
+          <s.StyledMail width="30px" height="30px" hoverColor="#ff8a00" />
+        </s.SvgLink>
+        <s.SvgLink
           as="a"
           href="https://www.linkedin.com/in/hirdman/"
           target="_blank"
           rel="noreferrer"
         >
-          <svg.LinkedIn fill="#3f3f3f" />
-        </experience.SvgLink>
-        <experience.SvgLink
+          <s.StyledLinkedIn width="30px" height="30px" hoverColor="#ff8a00" />
+        </s.SvgLink>
+        <s.SvgLink
           as="a"
           href="https://github.com/ahirdman"
           target="_blank"
           rel="noreferrer"
         >
-          <svg.Github fill="#3f3f3f" />
-        </experience.SvgLink>
-      </experience.Links>
-      <experience.Footer>
-        <experience.Small>
-          &copy; Copyright {currentYear}, Alexander Hirdman
-        </experience.Small>
-      </experience.Footer>
+          <s.StyledGithub width="30px" height="30px" hoverColor="#ff8a00" />
+        </s.SvgLink>
+      </s.Links>
+      <s.Footer>
+        <s.Small>&copy; Copyright {currentYear}, Alexander Hirdman</s.Small>
+      </s.Footer>
     </WhiteSection>
   );
 };

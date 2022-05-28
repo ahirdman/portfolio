@@ -1,9 +1,9 @@
 import { AnimatePresence } from 'framer-motion';
 import { GreySection } from 'src/styled/Containers';
 import { ReactNode, useState } from 'react';
-import { Header, Title, Details } from '../../styled/Text';
 import * as svg from './svg';
 import * as about from './styled';
+import Header from '../Header/Header';
 
 interface IContent {
   svg: ReactNode;
@@ -182,10 +182,7 @@ const About = () => {
   const [expanded, setExpanded] = useState<false | number>(0);
   return (
     <GreySection id="about">
-      <Header>
-        <Title>ABOUT</Title>
-        <Details>Who is Alexander?</Details>
-      </Header>
+      <Header title="ABOUT" />
       <AboutSections expanded={expanded} setExpanded={setExpanded} />
     </GreySection>
   );

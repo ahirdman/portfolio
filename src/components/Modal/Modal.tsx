@@ -2,7 +2,7 @@ import styles from '../../../styles/Modal.module.scss';
 import { IProjectDetails } from 'src/interface';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Image from 'next/image';
-import { Header, Title, Details } from '../../styled/Text';
+import { Header, Title, Details } from '../Header/styled';
 import { ReactNode, useEffect, useRef } from 'react';
 import useWindowSize from 'src/utils/hooks';
 import * as Variants from './motionVariants';

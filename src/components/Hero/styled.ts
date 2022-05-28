@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Title } from 'src/styled/Text';
+import { Title } from 'src/components/Header/styled';
 
 /**
  * Styled Containers
