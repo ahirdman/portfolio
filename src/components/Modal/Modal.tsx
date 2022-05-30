@@ -72,6 +72,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
               title={project.title}
               description={project.details}
               grey={true}
+              noAnimate={true}
             />
             <s.ImageContainer>
               <Image

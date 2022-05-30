@@ -9,7 +9,7 @@ export const popUp: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.1,
+      duration: 0.8,
       type: 'spring',
       damping: 25,
       stiffness: 500,
@@ -30,7 +30,7 @@ export const popRight: Variants = {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 0.1,
+      duration: 0.8,
       type: 'spring',
       damping: 25,
       stiffness: 500,
