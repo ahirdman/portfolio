@@ -1,8 +1,6 @@
 import { GreySection } from 'src/styled/Containers';
 import { IWindow } from 'src/interface';
 import useWindowSize from 'src/utils/hooks';
-import styles from '../../../styles/Hero.module.scss';
-import Image from 'next/image';
 import * as s from './styled';
 
 const Hero = () => {
@@ -12,24 +10,22 @@ const Hero = () => {
     <GreySection id="Home" flex>
       <s.HeroImage>
         {size.width && size.width < 600 && (
-          <Image
+          <s.StyledImage
             src="/images/hero.jpg"
             alt="me"
             layout="responsive"
             width={300}
             height={200}
             priority={true}
-            className={styles.hero}
           />
         )}
         {size.width && size.width >= 600 && (
-          <Image
+          <s.StyledImage
             src="/images/hero.jpg"
             alt="me"
             layout="fill"
             priority={true}
             objectFit="cover"
-            className={styles.hero}
           />
         )}
       </s.HeroImage>

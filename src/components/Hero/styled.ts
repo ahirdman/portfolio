@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 /**
  * Styled Containers
@@ -33,6 +34,25 @@ export const HeroImage = styled.div`
 export const Header = styled.header`
   height: 15vh;
   padding-top: 1rem;
+`;
+
+export const StyledImage = styled(Image)`
+  mask-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(63, 63, 63, 0.5) 51.56%,
+    #3f3f3f 100%
+  );
+
+  @media screen and (min-width: 600px) {
+    object-fit: cover;
+    mask-image: linear-gradient(
+      -90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(63, 63, 63, 0.5) 51.56%,
+      #3f3f3f 100%
+    );
+  }
 `;
 
 /**

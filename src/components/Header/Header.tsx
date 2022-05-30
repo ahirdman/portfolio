@@ -18,7 +18,7 @@ const Header = ({ grey, title, description }: IHeaderProps) => {
       }}
     >
       {grey ? (
-        <Title grey variants={headerVariants}>
+        <Title variants={headerVariants} $dark>
           {title}
         </Title>
       ) : (

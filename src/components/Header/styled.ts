@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 interface ITitle {
-  readonly grey?: boolean;
+  readonly $dark?: boolean;
 }
 
 const Container = styled(motion.header)`
@@ -16,7 +16,7 @@ const Title = styled(motion.h1)<ITitle>`
   line-height: 54px;
   letter-spacing: 0.03em;
   text-align: center;
-  color: ${props => (props.grey ? '#3f3f3f' : '#ffffff')};
+  color: ${props => (props.$dark ? '#3f3f3f' : '#ffffff')};
 `;
 
 const Details = styled(motion.h2)`
