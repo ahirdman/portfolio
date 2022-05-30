@@ -5,21 +5,6 @@ interface ITitle {
   readonly grey?: boolean;
 }
 
-// interface IHeaderProps {
-//   readonly whileInView?: string
-//   readonly inital?: string
-//   readonly viewport?: string
-// }
-
-// const headerStyles = ({ whileInView, initial, viewport }) => {
-
-// }
-
-const Header = styled(motion.header)`
-  height: 15vh;
-  padding-top: 1rem;
-`;
-
 const Container = styled(motion.header)`
   height: 15vh;
   padding-top: 1rem;
@@ -43,4 +28,4 @@ const Details = styled(motion.h2)`
   color: #868686;
 `;
 
-export { Header, Container, Title, Details };
+export { Container, Title, Details };

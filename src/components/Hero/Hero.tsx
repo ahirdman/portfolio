@@ -1,6 +1,5 @@
 import { GreySection } from 'src/styled/Containers';
 import { IWindow } from 'src/interface';
-import { Header } from 'src/components/Header/styled';
 import useWindowSize from 'src/utils/hooks';
 import styles from '../../../styles/Hero.module.scss';
 import Image from 'next/image';
@@ -35,9 +34,9 @@ const Hero = () => {
         )}
       </Styled.HeroImage>
       <Styled.HeroColumn>
-        <Header>
+        <Styled.Header>
           <Styled.HeroTitle>ALEXANDER HIRDMAN</Styled.HeroTitle>
-        </Header>
+        </Styled.Header>
         <Styled.HeroBody>
           Restaurant manager turned <Styled.Orange>fullstack</Styled.Orange>{' '}
           developer

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Title } from 'src/components/Header/styled';
 
 /**
  * Styled Containers
@@ -31,14 +30,23 @@ export const HeroImage = styled.div`
   }
 `;
 
+export const Header = styled.header`
+  height: 15vh;
+  padding-top: 1rem;
+`;
+
 /**
  * Styled Text
  */
 
-export const HeroTitle = styled(Title)`
+export const HeroTitle = styled.h1`
   text-align: left;
   padding-top: 0;
   line-height: 2.5rem;
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 `;
 
 export const HeroBody = styled.p`

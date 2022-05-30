@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { ISvgStylesProps, svgProps } from 'src/styled/props';
+import * as SVG from './svg';
 
 /**
  * Styled Containers
@@ -97,4 +99,48 @@ export const AccTitle = styled.h2`
   letter-spacing: 0.05em;
   color: #ffffff;
   margin-bottom: 10px;
+`;
+
+/**
+ * Styled SVG
+ */
+
+export const StyledCaretRight = styled(SVG.CaretRight)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledPlanet = styled(SVG.Planet)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledJeep = styled(SVG.Jeep)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledPaw = styled(SVG.Paw)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledReact = styled(SVG.React)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledDatabase = styled(SVG.Database)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledTypeScript = styled(SVG.TypeScript)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledUser = styled(SVG.User)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledTeam = styled(SVG.Team)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledTest = styled(SVG.Test)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
 `;

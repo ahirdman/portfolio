@@ -9,7 +9,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Link } from 'react-scroll';
 import useWindowSize from 'src/utils/hooks';
-import * as Styled from './styled';
+import * as s from './styled';
 import Header from '../Header/Header';
 
 interface IProjectCardProps {
@@ -27,7 +27,7 @@ const ProjectCard = ({
 }: IProjectCardProps) => {
   return (
     <Link to="projects" smooth={false} spy={true}>
-      <Styled.CardContainer
+      <s.CardContainer
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => {
@@ -35,8 +35,8 @@ const ProjectCard = ({
           modalOpen ? setModalOpen(false) : setModalOpen(true);
         }}
       >
-        <Styled.CardTitle>{card.title}</Styled.CardTitle>
-        <Styled.CardDescription>{card.type}</Styled.CardDescription>
+        <s.CardTitle>{card.title}</s.CardTitle>
+        <s.CardDescription>{card.type}</s.CardDescription>
         <Image
           src={`https:${card.image}`}
           alt="project screenshot"
@@ -44,7 +44,7 @@ const ProjectCard = ({
           height={200}
           style={{ borderRadius: '5px' }}
         />
-      </Styled.CardContainer>
+      </s.CardContainer>
     </Link>
   );
 };
@@ -66,7 +66,7 @@ const Carousel = ({
   const size: IWindow = useWindowSize();
 
   return (
-    <Styled.Container>
+    <s.Container>
       <CarouselProvider
         naturalSlideWidth={100}
         naturalSlideHeight={size.width && size.width < 600 ? 145 : 100}
@@ -96,7 +96,7 @@ const Carousel = ({
           ))}
         </Slider>
       </CarouselProvider>
-    </Styled.Container>
+    </s.Container>
   );
 };
 
@@ -111,7 +111,7 @@ const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
 
   return (
     <WhiteSection id="projects">
-      <Header title="PROJECTS" grey={true} />
+      <Header title="PROJECTS" description="Some of my work" grey={true} />
       <Carousel
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import styled, { css } from 'styled-components';
+import { ISvgStylesProps, svgProps } from 'src/styled/props';
+import styled from 'styled-components';
 import * as SVG from './svg';
 
 /**
@@ -14,6 +15,13 @@ export const Container = styled.main`
   margin-bottom: 5vh;
   height: 55vh;
   width: clamp(50%, 500px, 90%);
+`;
+
+export const Wrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 `;
 
 export const Card = styled.main`
@@ -91,39 +99,18 @@ export const Details = styled.p`
  * Styled SVG
  */
 
-interface ISvgStylesProps {
-  readonly height?: string;
-  readonly width?: string;
-  readonly color?: string;
-  readonly hoverColor?: string;
-}
-
-const svgStyles = ({ height, width, color, hoverColor }: ISvgStylesProps) => {
-  return css`
-    height: ${height || '100%'};
-    width: ${width || '100%'};
-
-    & path {
-      fill: ${color || '#414141'};
-    }
-    &:hover path {
-      fill: ${hoverColor || ''};
-    }
-  `;
-};
-
 export const StyledLineArrow = styled(SVG.LineArrow)`
-  ${(props: ISvgStylesProps) => svgStyles(props)}
+  ${(props: ISvgStylesProps) => svgProps(props)}
 `;
 
 export const StyledMail = styled(SVG.Mail)`
-  ${(props: ISvgStylesProps) => svgStyles(props)}
+  ${(props: ISvgStylesProps) => svgProps(props)}
 `;
 
 export const StyledLinkedIn = styled(SVG.LinkedIn)`
-  ${(props: ISvgStylesProps) => svgStyles(props)}
+  ${(props: ISvgStylesProps) => svgProps(props)}
 `;
 
 export const StyledGithub = styled(SVG.Github)`
-  ${(props: ISvgStylesProps) => svgStyles(props)}
+  ${(props: ISvgStylesProps) => svgProps(props)}
 `;

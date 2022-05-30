@@ -3,10 +3,11 @@ import { Container, Title, Details } from './styled';
 
 interface IHeaderProps {
   title: string;
+  description: string;
   grey?: boolean;
 }
 
-const Header = ({ grey, title }: IHeaderProps) => {
+const Header = ({ grey, title, description }: IHeaderProps) => {
   return (
     <Container
       initial="offscreen"
@@ -23,7 +24,7 @@ const Header = ({ grey, title }: IHeaderProps) => {
       ) : (
         <Title variants={headerVariants}>{title}</Title>
       )}
-      <Details variants={headerVariantsSecond}>Some of my work</Details>
+      <Details variants={headerVariantsSecond}>{description}</Details>
     </Container>
   );
 };

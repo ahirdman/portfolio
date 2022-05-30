@@ -2,14 +2,8 @@ import { AnimatePresence } from 'framer-motion';
 import { GreySection } from 'src/styled/Containers';
 import { ReactNode, useState } from 'react';
 import * as svg from './svg';
-import * as about from './styled';
+import * as s from './styled';
 import Header from '../Header/Header';
-
-interface IContent {
-  svg: ReactNode;
-  title: string;
-  body: string;
-}
 
 interface IAccordionSectionProps {
   content: IContent[];
@@ -17,71 +11,77 @@ interface IAccordionSectionProps {
 
 const AccordionSection = ({ content }: IAccordionSectionProps) => {
   return (
-    <about.AccordionContainer
+    <s.AccordionContainer
       variants={{ collapsed: { scale: 1 }, open: { scale: 1 } }}
       transition={{ duration: 0.8 }}
     >
       {content.map((content: IContent, index: number) => (
-        <about.AccordionRow key={index}>
-          <about.AccordionSvg>{content.svg}</about.AccordionSvg>
+        <s.AccordionRow key={index}>
+          <s.AccordionSvg>{content.svg}</s.AccordionSvg>
           <article>
-            <about.AccTitle>{content.title}</about.AccTitle>
-            <about.AccBody>{content.body}</about.AccBody>
+            <s.AccTitle>{content.title}</s.AccTitle>
+            <s.AccBody>{content.body}</s.AccBody>
           </article>
-        </about.AccordionRow>
+        </s.AccordionRow>
       ))}
-    </about.AccordionContainer>
+    </s.AccordionContainer>
   );
 };
+
+interface IContent {
+  svg: ReactNode;
+  title: string;
+  body: string;
+}
 
 const content = {
   leisure: [
     {
-      svg: <svg.Planet />,
+      svg: <s.StyledPlanet />,
       title: 'stargazing',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
     {
-      svg: <svg.Jeep />,
+      svg: <s.StyledJeep />,
       title: 'roadtrips',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
     {
-      svg: <svg.Paw />,
+      svg: <s.StyledPaw />,
       title: 'cornelis',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
   ],
   skills: [
     {
-      svg: <svg.TypeScript />,
+      svg: <s.StyledTypeScript />,
       title: 'languages',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
     {
-      svg: <svg.React />,
+      svg: <s.StyledReact />,
       title: 'frontend',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
     {
-      svg: <svg.Database />,
+      svg: <s.StyledDatabase />,
       title: 'backend',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
   ],
   dev: [
     {
-      svg: <svg.Test />,
+      svg: <s.StyledTest />,
       title: 'tdd',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
     {
-      svg: <svg.Team />,
+      svg: <s.StyledTeam />,
       title: 'team',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
     {
-      svg: <svg.User />,
+      svg: <s.StyledUser />,
       title: 'user first',
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu facilisis.',
     },
@@ -121,25 +121,25 @@ interface IAccordionProps {
 const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
   const isOpen = section.id === expanded;
   return (
-    <about.Container>
-      <about.HeaderMotion
+    <s.Container>
+      <s.HeaderMotion
         initial={false}
         animate={{ backgroundColor: isOpen ? '#606060' : '#3F3F3F' }}
         onClick={() => setExpanded(isOpen ? false : section.id)}
       >
-        <about.AccHeader>{section.header}</about.AccHeader>
-        <about.CaretMotion
+        <s.AccHeader>{section.header}</s.AccHeader>
+        <s.CaretMotion
           initial={false}
           animate={{
             rotate: isOpen ? 90 : 0,
           }}
         >
-          <svg.CaretRight />
-        </about.CaretMotion>
-      </about.HeaderMotion>
+          <s.StyledCaretRight />
+        </s.CaretMotion>
+      </s.HeaderMotion>
       <AnimatePresence initial={false}>
         {isOpen && (
-          <about.SectionMotion
+          <s.SectionMotion
             key="content"
             initial="collapsed"
             animate="open"
@@ -151,10 +151,10 @@ const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
             transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
             {section.jsx}
-          </about.SectionMotion>
+          </s.SectionMotion>
         )}
       </AnimatePresence>
-    </about.Container>
+    </s.Container>
   );
 };
 
@@ -165,7 +165,7 @@ interface IAboutSectionsProps {
 
 const AboutSections = ({ expanded, setExpanded }: IAboutSectionsProps) => {
   return (
-    <about.MainContainer>
+    <s.MainContainer>
       {accordionJSX.map((sec, index) => (
         <Accordion
           key={index}
@@ -174,7 +174,7 @@ const AboutSections = ({ expanded, setExpanded }: IAboutSectionsProps) => {
           setExpanded={setExpanded}
         />
       ))}
-    </about.MainContainer>
+    </s.MainContainer>
   );
 };
 
@@ -182,7 +182,7 @@ const About = () => {
   const [expanded, setExpanded] = useState<false | number>(0);
   return (
     <GreySection id="about">
-      <Header title="ABOUT" />
+      <Header title="ABOUT" description="Who is Alexander?" />
       <AboutSections expanded={expanded} setExpanded={setExpanded} />
     </GreySection>
   );

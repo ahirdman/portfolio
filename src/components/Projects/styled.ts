@@ -5,13 +5,6 @@ import styled from 'styled-components';
  * Styled Containers
  */
 
-export const SplitSection = styled.main`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 50vw;
-`;
-
 export const CardContainer = styled(motion.div)`
   letter-spacing: 0.03em;
   cursor: pointer;

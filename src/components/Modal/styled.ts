@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { ISvgStylesProps, svgProps } from 'src/styled/props';
 import styled from 'styled-components';
+import * as SVG from './svg';
 
 /**
  * Styled Containers
@@ -57,23 +59,6 @@ export const Modal = styled(motion.article)`
     border-radius: 20px;
     padding-right: 5vw;
     padding-left: 5vw;
-  }
-`;
-
-export const CloseButton = styled.div`
-  margin-top: 1.5vh;
-  margin-right: 1.5vh;
-  z-index: 1;
-
-  &:hover {
-    stroke: white;
-  }
-
-  @media screen and (min-width: 600px) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 1rem;
   }
 `;
 
@@ -137,7 +122,36 @@ export const TextLink = styled.a`
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.03em;
-  color: #000000;
   display: flex;
   align-items: center;
+
+  &:hover {
+    color: #9e9e9e;
+  }
+`;
+
+/**
+ * Styled SVG
+ */
+
+export const StyledChevronsRight = styled(SVG.ChevronsRight)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+
+  ${TextLink}:hover & path {
+    stroke: #9e9e9e;
+  }
+`;
+
+export const StyledClose = styled(SVG.Close)`
+  margin-top: 1.5vh;
+  margin-right: 1.5vh;
+
+  @media screen and (min-width: 600px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+  }
+
+  ${(props: ISvgStylesProps) => svgProps(props)}
 `;
