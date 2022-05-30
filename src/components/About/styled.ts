@@ -15,10 +15,13 @@ export const AccordionContainer = styled(motion.div)`
 
 export const AccordionRow = styled.div`
   display: flex;
-  justify-content: center;
-  height: 80px;
+  justify-content: left;
   margin-bottom: 20px;
   overflow: hidden;
+
+  @media screen and (max-width: 600px) {
+    justify-content: center;
+  }
 `;
 
 export const AccordionSvg = styled.div`
@@ -26,10 +29,15 @@ export const AccordionSvg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 6em;
+  margin: 30px;
+
+  @media screen and (max-width: 600px) {
+    margin: 0px;
+    margin-right: 20px;
+  }
 
   @media screen and (min-width: 1000px) {
-    width: 5em;
+    margin: 30px;
   }
 `;
 
@@ -79,8 +87,13 @@ export const AccBody = styled.p`
   line-height: 18px;
   letter-spacing: 0.05em;
   color: #ffffff;
+
   @media screen and (max-width: 600px) {
     width: 200px;
+  }
+
+  @media screen and (min-width: 600px) {
+    padding-right: 40px;
   }
 `;
 
