@@ -146,6 +146,10 @@ export const StyledClose = styled(SVG.Close)`
   margin-top: 1.5vh;
   margin-right: 1.5vh;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 600px) {
     position: absolute;
     top: 0;

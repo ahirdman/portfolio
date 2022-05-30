@@ -1,9 +1,8 @@
 import { AnimatePresence } from 'framer-motion';
 import { GreySection } from 'src/styled/Containers';
 import { ReactNode, useState } from 'react';
-import * as svg from './svg';
-import * as s from './styled';
 import Header from '../Header/Header';
+import * as s from './styled';
 
 interface IAccordionSectionProps {
   content: IContent[];
@@ -124,8 +123,13 @@ const Accordion = ({ section, expanded, setExpanded }: IAccordionProps) => {
     <s.Container>
       <s.HeaderMotion
         initial={false}
-        animate={{ backgroundColor: isOpen ? '#606060' : '#3F3F3F' }}
+        animate={{
+          backgroundColor: isOpen ? '#606060' : '#3F3F3F',
+        }}
         onClick={() => setExpanded(isOpen ? false : section.id)}
+        whileHover={{
+          backgroundColor: '#4b4b4b',
+        }}
       >
         <s.AccHeader>{section.header}</s.AccHeader>
         <s.CaretMotion
@@ -181,7 +185,7 @@ const AboutSections = ({ expanded, setExpanded }: IAboutSectionsProps) => {
 const About = () => {
   const [expanded, setExpanded] = useState<false | number>(0);
   return (
-    <GreySection id="about">
+    <GreySection id="About">
       <Header title="ABOUT" description="Who is Alexander?" />
       <AboutSections expanded={expanded} setExpanded={setExpanded} />
     </GreySection>

@@ -3,14 +3,14 @@ import { IWindow } from 'src/interface';
 import useWindowSize from 'src/utils/hooks';
 import styles from '../../../styles/Hero.module.scss';
 import Image from 'next/image';
-import * as Styled from './styled';
+import * as s from './styled';
 
 const Hero = () => {
   const size: IWindow = useWindowSize();
 
   return (
-    <GreySection id="hero" flex>
-      <Styled.HeroImage>
+    <GreySection id="Home" flex>
+      <s.HeroImage>
         {size.width && size.width < 600 && (
           <Image
             src="/images/hero.jpg"
@@ -32,19 +32,18 @@ const Hero = () => {
             className={styles.hero}
           />
         )}
-      </Styled.HeroImage>
-      <Styled.HeroColumn>
-        <Styled.Header>
-          <Styled.HeroTitle>ALEXANDER HIRDMAN</Styled.HeroTitle>
-        </Styled.Header>
-        <Styled.HeroBody>
-          Restaurant manager turned <Styled.Orange>fullstack</Styled.Orange>{' '}
-          developer
+      </s.HeroImage>
+      <s.HeroColumn>
+        <s.Header>
+          <s.HeroTitle>ALEXANDER HIRDMAN</s.HeroTitle>
+        </s.Header>
+        <s.HeroBody>
+          Restaurant manager turned <s.Orange>fullstack</s.Orange> developer
           <br />
           <br />I strive to create simplified applications that improves daily
           life
-        </Styled.HeroBody>
-      </Styled.HeroColumn>
+        </s.HeroBody>
+      </s.HeroColumn>
     </GreySection>
   );
 };

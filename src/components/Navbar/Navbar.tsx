@@ -1,54 +1,42 @@
-import { Variants } from 'framer-motion';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
+import { useState } from 'react';
 import { Link } from 'react-scroll';
-import * as Styled from './styled';
+import { popUp } from './motionVariants';
+import * as s from './styled';
 
-const popUp: Variants = {
-  hidden: {
-    y: '100vh',
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-  exit: {
-    y: '100vh',
-    opacity: 0,
-  },
-};
+const tabs = ['Home', 'Projects', 'About', 'Experience'];
 
 const Navbar = () => {
+  const [selectedTab, setSelectedTab] = useState<string>();
+
   return (
     <AnimatePresence
       initial={true}
       exitBeforeEnter={true}
       onExitComplete={() => null}
     >
-      <Styled.NavContainer>
-        <Styled.Nav
-          variants={popUp}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          <Link to="hero" smooth={true} spy={true}>
-            <Styled.NavLink>Home</Styled.NavLink>
-          </Link>
-          <Link to="projects" smooth={true} spy={true}>
-            <Styled.NavLink>Projects</Styled.NavLink>
-          </Link>
-          <Link to="about" smooth={true} spy={true}>
-            <Styled.NavLink>About</Styled.NavLink>
-          </Link>
-          <Link to="experience" smooth={true} spy={true}>
-            <Styled.NavLink>Experience</Styled.NavLink>
-          </Link>
-        </Styled.Nav>
-      </Styled.NavContainer>
+      <s.NavContainer>
+        <s.Nav variants={popUp} initial="hidden" animate="visible" exit="exit">
+          {tabs.map((tab: string) => (
+            <Link
+              key={tab}
+              to={tab}
+              smooth={true}
+              spy={true}
+              onSetActive={() => setSelectedTab(tab)}
+              style={{
+                display: 'flex',
+                position: 'relative',
+              }}
+            >
+              <s.NavLink>{tab}</s.NavLink>
+              {selectedTab === tab ? (
+                <s.Underline layoutId="underline" />
+              ) : null}
+            </Link>
+          ))}
+        </s.Nav>
+      </s.NavContainer>
     </AnimatePresence>
   );
 };

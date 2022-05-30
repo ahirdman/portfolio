@@ -10,7 +10,7 @@ const Experience = () => {
   const currentYear = date.getFullYear();
 
   return (
-    <WhiteSection id="experience">
+    <WhiteSection id="Experience">
       <Header
         title="EXPERIENCE"
         description="Some of my experience"

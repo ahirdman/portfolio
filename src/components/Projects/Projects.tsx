@@ -110,7 +110,7 @@ const Projects = ({ cards, modalOpen, setModalOpen }: IProjectProps) => {
   const [project, setProject] = useState();
 
   return (
-    <WhiteSection id="projects">
+    <WhiteSection id="Projects">
       <Header title="PROJECTS" description="Some of my work" grey={true} />
       <Carousel
         modalOpen={modalOpen}

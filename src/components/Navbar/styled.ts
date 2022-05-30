@@ -24,6 +24,15 @@ export const NavContainer = styled.div`
   justify-content: center;
 `;
 
+export const Underline = styled(motion.div)`
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: white;
+`;
+
 /**
  * Styled Text
  */
