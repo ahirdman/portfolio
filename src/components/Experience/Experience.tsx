@@ -74,7 +74,11 @@ const Experience = () => {
         <s.Small>&copy; Copyright {currentYear}, Alexander Hirdman</s.Small>
         <s.Small>
           Found an issue with this page?{' '}
-          <a href="https://github.com/ahirdman/portfolio" target="_blank">
+          <a
+            href="https://github.com/ahirdman/portfolio"
+            target="_blank"
+            rel="noreferrer"
+          >
             <s.StyledStrong>Fix it on GitHub</s.StyledStrong>
           </a>
         </s.Small>
