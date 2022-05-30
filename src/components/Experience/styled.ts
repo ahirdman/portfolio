@@ -3,6 +3,10 @@ import { ISvgStylesProps, svgProps } from 'src/styled/props';
 import styled from 'styled-components';
 import * as SVG from './svg';
 
+interface ISmall {
+  readonly aligned?: boolean;
+}
+
 /**
  * Styled Containers
  */
@@ -46,22 +50,20 @@ export const Links = styled.div`
 
 export const SvgLink = styled(motion.div)`
   margin: 10px;
-  /* 
-  &:hover {
-    cursor: pointer;
-  } */
 `;
 
 /**
  * Styled Text
  */
 
-export const Small = styled.small`
+export const Small = styled.small<ISmall>`
   font-weight: 400;
   font-size: 8px;
   line-height: 18px;
   letter-spacing: 0.05em;
   color: #ababab;
+  display: ${props => (props.aligned ? 'flex' : null)};
+  align-items: ${props => (props.aligned ? 'center' : null)};
 `;
 
 export const Title = styled.h1`
@@ -95,6 +97,12 @@ export const Details = styled.p`
   color: #ababab;
 `;
 
+export const StyledStrong = styled.strong`
+  &:hover {
+    color: #ff8a00;
+  }
+`;
+
 /**
  * Styled SVG
  */
@@ -112,5 +120,10 @@ export const StyledLinkedIn = styled(SVG.LinkedIn)`
 `;
 
 export const StyledGithub = styled(SVG.Github)`
+  ${(props: ISvgStylesProps) => svgProps(props)}
+`;
+
+export const StyledNextJs = styled(SVG.NextJs)`
+  margin-left: 4px;
   ${(props: ISvgStylesProps) => svgProps(props)}
 `;

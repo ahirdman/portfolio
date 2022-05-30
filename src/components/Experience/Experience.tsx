@@ -68,7 +68,16 @@ const Experience = () => {
         </s.SvgLink>
       </s.Links>
       <s.Footer>
+        <s.Small aligned>
+          Built with <s.StyledNextJs width="auto" height="12px" />
+        </s.Small>
         <s.Small>&copy; Copyright {currentYear}, Alexander Hirdman</s.Small>
+        <s.Small>
+          Found an issue with this page?{' '}
+          <a href="https://github.com/ahirdman/portfolio" target="_blank">
+            <s.StyledStrong>Fix it on GitHub</s.StyledStrong>
+          </a>
+        </s.Small>
       </s.Footer>
     </WhiteSection>
   );

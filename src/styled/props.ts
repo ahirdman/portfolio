@@ -9,6 +9,10 @@ export interface ISvgStylesProps {
   readonly hoverStroke?: string;
 }
 
+export interface ILinkProps {
+  readonly hoverColor?: string;
+}
+
 export const svgProps = ({
   width,
   height,
@@ -28,6 +32,14 @@ export const svgProps = ({
     &:hover path {
       fill: ${hoverColor || ''};
       stroke: ${hoverStroke || ''};
+    }
+  `;
+};
+
+export const linkProps = ({ hoverColor }: ILinkProps) => {
+  return css`
+    &:hover {
+      color: ${hoverColor || null};
     }
   `;
 };

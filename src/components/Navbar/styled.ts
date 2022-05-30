@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { ILinkProps, linkProps } from 'src/styled/props';
 import styled from 'styled-components';
 
 /**
@@ -46,4 +47,6 @@ export const NavLink = styled.p`
   &:hover {
     cursor: pointer;
   }
+
+  ${(props: ILinkProps) => linkProps(props)}
 `;
