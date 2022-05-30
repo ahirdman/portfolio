@@ -60,7 +60,7 @@ export const Container = styled.section`
   width: clamp(50%, 500px, 90%);
 `;
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.section`
   padding-right: 5vw;
   padding-left: 5vw;
   display: flex;

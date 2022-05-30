@@ -1,7 +1,6 @@
-import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-scroll';
-import { highlight } from 'src/styled/colors';
 import { popUp } from './motionVariants';
 import * as s from './styled';
 
@@ -30,7 +29,7 @@ const Navbar = () => {
                 position: 'relative',
               }}
             >
-              <s.NavLink hoverColor={highlight}>{tab}</s.NavLink>
+              <s.NavLink>{tab}</s.NavLink>
               {selectedTab === tab ? (
                 <s.Underline layoutId="underline" />
               ) : null}
