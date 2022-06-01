@@ -30,9 +30,7 @@ const Hero = () => {
         )}
       </s.HeroImage>
       <s.HeroColumn>
-        <s.Header>
-          <s.HeroTitle>ALEXANDER HIRDMAN</s.HeroTitle>
-        </s.Header>
+        <s.HeroTitle>ALEXANDER HIRDMAN</s.HeroTitle>
         <s.HeroBody>
           Restaurant manager turned <s.Orange>fullstack</s.Orange> developer
           <br />

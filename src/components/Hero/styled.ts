@@ -6,20 +6,18 @@ import Image from 'next/image';
  */
 
 export const HeroColumn = styled.main`
-  height: 65vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   height: 42vh;
-  padding-right: 5rem;
-  padding-left: 5rem;
+  padding-right: 20%;
+  padding-left: 20%;
 
   @media screen and (min-width: 600px) {
     width: 50vw;
     height: 100vh;
-    justify-content: center;
-    padding-right: 10rem;
-    padding-left: 10rem;
+    padding-right: 10%;
+    padding-left: 10%;
   }
 `;
 
@@ -29,11 +27,6 @@ export const HeroImage = styled.div`
     height: 100vh;
     position: relative;
   }
-`;
-
-export const Header = styled.header`
-  height: 15vh;
-  padding-top: 1rem;
 `;
 
 export const StyledImage = styled(Image)`
@@ -67,6 +60,7 @@ export const HeroTitle = styled.h1`
   font-size: 36px;
   letter-spacing: 0.03em;
   color: #ffffff;
+  margin-bottom: 20%;
 `;
 
 export const HeroBody = styled.p`
