@@ -34,7 +34,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   const size = useWindowSize();
 
   useEffect(() => {
-    if (size.width && size.width < 600) {
+    if (size.width) {
       const storedRequestAnimationFrame = window.requestAnimationFrame;
 
       window.requestAnimationFrame = () => 42;
@@ -47,7 +47,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
     return () => {
       clearAllBodyScrollLocks();
     };
-  }, []);
+  }, [size.width]);
 
   return (
     <Backdrop onClick={handleClose}>

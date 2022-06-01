@@ -26,7 +26,7 @@ const ProjectCard = ({
   setProject,
 }: IProjectCardProps) => {
   return (
-    <Link to="projects" smooth={false} spy={true}>
+    <Link to="Projects" smooth={false}>
       <s.CardContainer
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
