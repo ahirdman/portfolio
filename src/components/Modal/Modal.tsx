@@ -95,7 +95,6 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
                 </s.ImageContainer>
               )}
             </s.ImageSection>
-
             <s.ToolsContainer>
               {project.tools.map((tool: string, index: number) => (
                 <s.SmallBold key={index}>{tool}</s.SmallBold>

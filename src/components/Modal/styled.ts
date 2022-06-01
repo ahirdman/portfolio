@@ -40,6 +40,11 @@ export const ToolsContainer = styled.div`
   flex-wrap: wrap;
   width: 90%;
   height: 5vh;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
 `;
 
 export const Modal = styled(motion.article)`
@@ -60,7 +65,9 @@ export const Modal = styled(motion.article)`
     height: 80vh;
     border-radius: 20px;
     padding-right: 5vw;
+    padding-bottom: 5vh;
     padding-left: 5vw;
+    justify-content: space-between;
   }
 `;
 
@@ -76,14 +83,10 @@ export const ImageSection = styled.section`
 `;
 
 export const ImageContainer = styled.div`
-  /* display: flex; */
-  /* width: 50%; */
-  /* height: auto; */
-  /* margin-top: 0.5rem; */
   width: 100%;
 
   @media screen and (min-width: 600px) {
-    width: 22vw;
+    width: 21vw;
   }
 `;
 
