@@ -18,7 +18,6 @@ const WhiteSection = styled.section<ISection>`
   background-color: white;
 
   @media screen and (max-height: 701px) {
-    width: 120vw;
     overflow: scroll;
   }
 
