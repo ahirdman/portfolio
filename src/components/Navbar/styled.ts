@@ -18,6 +18,10 @@ export const Nav = styled(motion.nav)`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   z-index: 1;
+
+  @media screen and (max-height: 701px) {
+    top: 85%;
+  }
 `;
 
 export const NavContainer = styled.div`

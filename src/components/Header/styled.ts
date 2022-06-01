@@ -14,6 +14,10 @@ const titleProps = ({ color }: ITitleProps) => {
 const Container = styled(motion.header)`
   height: 15vh;
   padding-top: 1rem;
+
+  @media screen and (max-height: 701px) {
+    margin-bottom: 7%;
+  }
 `;
 
 const Title = styled(motion.h1)`

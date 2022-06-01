@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ISvgStylesProps, svgProps } from 'src/styled/props';
 import styled from 'styled-components';
 import * as SVG from './svg';
+import Image from 'next/image';
 
 /**
  * Styled Containers
@@ -37,8 +38,8 @@ export const ToolsContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  width: 100%;
-  height: 4rem;
+  width: 90%;
+  height: 5vh;
 `;
 
 export const Modal = styled(motion.article)`
@@ -52,6 +53,7 @@ export const Modal = styled(motion.article)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
 
   @media screen and (min-width: 600px) {
     width: 60vw;
@@ -62,16 +64,31 @@ export const Modal = styled(motion.article)`
   }
 `;
 
+export const ImageSection = styled.section`
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  height: fit-content;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
 export const ImageContainer = styled.div`
-  width: 90vw;
-  height: auto;
-  margin-top: 0.5rem;
+  /* display: flex; */
+  /* width: 50%; */
+  /* height: auto; */
+  /* margin-top: 0.5rem; */
+  width: 100%;
 
   @media screen and (min-width: 600px) {
-    width: 20vw;
-    height: 20vh;
-    position: relative;
+    width: 22vw;
   }
+`;
+
+export const StyledImage = styled(Image)`
+  border-radius: 5px;
 `;
 
 /**
@@ -100,7 +117,7 @@ export const ModalBody = styled.p`
   width: 90vw;
   color: #000000;
   text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 3vh;
 
   @media screen and (min-width: 600px) {
     width: 45vw;

@@ -17,6 +17,10 @@ const WhiteSection = styled.section<ISection>`
   height: 100vh;
   background-color: white;
 
+  @media screen and (max-height: 701px) {
+    overflow: scroll;
+  }
+
   @media screen and (min-width: 600px) {
     display: ${props => (props.flex ? 'flex' : '')};
     flex-direction: ${props => (props.centered ? 'column' : '')};

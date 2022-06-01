@@ -1,10 +1,9 @@
 import { IProjectDetails } from 'src/interface';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import Image from 'next/image';
 import Header from '../Header/Header';
 import { ReactNode, useEffect, useRef } from 'react';
 import useWindowSize from 'src/utils/hooks';
-import * as Variants from './motionVariants';
+import * as variants from './motionVariants';
 import * as s from './styled';
 
 interface IBackdropProps {
@@ -61,7 +60,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
       <s.Modal
         ref={modalRef}
         onClick={e => e.stopPropagation()}
-        variants={Variants.popUp}
+        variants={variants.popUp}
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -74,17 +73,29 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
               grey={true}
               noAnimate={true}
             />
-            <s.ImageContainer>
-              <Image
-                src={`https:${project.screenshot.fields.file.url}`}
-                alt="project screenshot"
-                width={192}
-                height={108}
-                priority={true}
-                layout="responsive"
-                style={{ borderRadius: '5px' }}
-              />
-            </s.ImageContainer>
+            <s.ImageSection>
+              <s.ImageContainer>
+                <s.StyledImage
+                  src={`https:${project.screenshot.fields.file.url}`}
+                  alt="screenshot 1"
+                  width={190}
+                  height={130}
+                  layout="responsive"
+                />
+              </s.ImageContainer>
+              {size.width && size.width >= 600 && (
+                <s.ImageContainer>
+                  <s.StyledImage
+                    src={'/images/hero.jpg'}
+                    alt="screenshot 2"
+                    width={190}
+                    height={130}
+                    layout="responsive"
+                  />
+                </s.ImageContainer>
+              )}
+            </s.ImageSection>
+
             <s.ToolsContainer>
               {project.tools.map((tool: string, index: number) => (
                 <s.SmallBold key={index}>{tool}</s.SmallBold>

@@ -19,6 +19,10 @@ export const Container = styled.main`
   margin-bottom: 5vh;
   height: 55vh;
   width: clamp(50%, 500px, 90%);
+
+  @media screen and (max-height: 701px) {
+    height: 100vh;
+  }
 `;
 
 export const Wrapper = styled.section`
@@ -41,6 +45,10 @@ export const Footer = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+
+  @media screen and (max-height: 701px) {
+    margin-bottom: 8%;
+  }
 `;
 
 export const Links = styled.div`
