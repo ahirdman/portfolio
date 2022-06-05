@@ -118,19 +118,21 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
                   color="none"
                 />
               </s.TextLink>
-              <s.TextLink
-                href={project.deployed}
-                target="_blank"
-                rel="noreferrer"
-              >
-                deployed app
-                <s.StyledChevronsRight
-                  width="17px"
-                  height="17px"
-                  stroke="black"
-                  color="none"
-                />
-              </s.TextLink>
+              {project.deployed && (
+                <s.TextLink
+                  href={project.deployed}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  deployed app
+                  <s.StyledChevronsRight
+                    width="17px"
+                    height="17px"
+                    stroke="black"
+                    color="none"
+                  />
+                </s.TextLink>
+              )}
             </s.ModalLinks>
           </>
         )}
