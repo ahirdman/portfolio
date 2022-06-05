@@ -33,8 +33,6 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const size = useWindowSize();
 
-  console.log(project);
-
   useEffect(() => {
     if (size.width) {
       const storedRequestAnimationFrame = window.requestAnimationFrame;
@@ -79,7 +77,7 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
               {size.width && size.width >= 600 ? (
                 <>
                   {project.screenshots.map((screenshot: any, index: number) => (
-                    <s.ImageContainer>
+                    <s.ImageContainer key={screenshot.fields.file.url}>
                       <s.StyledImage
                         src={`https:${screenshot.fields.file.url}`}
                         alt={`screenshot ${index}`}

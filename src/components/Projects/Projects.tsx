@@ -62,6 +62,7 @@ const Carousel = ({
   cards,
   setProject,
 }: ICarouselProps) => {
+  cards.sort((a, b) => a.order - b.order);
   const nestedCards = nestArray(cards);
   const size: IWindow = useWindowSize();
 

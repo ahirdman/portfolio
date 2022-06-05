@@ -29,6 +29,7 @@ const getAllProjects = async () => {
       type: project.fields.type,
       image: project.fields.screenshot.fields.file.url,
       ref: project.fields.ref.fields,
+      order: project.fields.order,
     };
   });
   return cards;
