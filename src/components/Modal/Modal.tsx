@@ -33,6 +33,8 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const size = useWindowSize();
 
+  console.log(project);
+
   useEffect(() => {
     if (size.width) {
       const storedRequestAnimationFrame = window.requestAnimationFrame;
@@ -74,20 +76,25 @@ export const ProjectModal = ({ handleClose, project }: IProjectModalProps) => {
               noAnimate={true}
             />
             <s.ImageSection>
-              <s.ImageContainer>
-                <s.StyledImage
-                  src={`https:${project.screenshot.fields.file.url}`}
-                  alt="screenshot 1"
-                  width={190}
-                  height={130}
-                  layout="responsive"
-                />
-              </s.ImageContainer>
-              {size.width && size.width >= 600 && (
+              {size.width && size.width >= 600 ? (
+                <>
+                  {project.screenshots.map((screenshot: any, index: number) => (
+                    <s.ImageContainer>
+                      <s.StyledImage
+                        src={`https:${screenshot.fields.file.url}`}
+                        alt={`screenshot ${index}`}
+                        width={190}
+                        height={130}
+                        layout="responsive"
+                      />
+                    </s.ImageContainer>
+                  ))}
+                </>
+              ) : (
                 <s.ImageContainer>
                   <s.StyledImage
-                    src={'/images/hero.jpg'}
-                    alt="screenshot 2"
+                    src={`https:${project.screenshot.fields.file.url}`}
+                    alt="screenshot"
                     width={190}
                     height={130}
                     layout="responsive"

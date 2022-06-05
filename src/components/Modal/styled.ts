@@ -75,7 +75,7 @@ export const ImageSection = styled.section`
   display: flex;
   justify-content: space-between;
   width: 90%;
-  height: fit-content;
+  height: auto;
 
   @media screen and (max-width: 600px) {
     width: 100%;
